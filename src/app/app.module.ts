@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SelectedDirective } from './selected.directive';
+import { FiltroPipe } from './filtro.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SelectedDirective,
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
