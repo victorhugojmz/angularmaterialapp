@@ -2,23 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import 'hammerjs';
 import { AppComponent } from './app.component';
-import { SelectedDirective } from './selected.directive';
-import { FiltroPipe } from './filtro.pipe';
+import { MaterialModule } from '@angular/material';
+import { UserService } from './user.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SelectedDirective,
-    FiltroPipe,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
