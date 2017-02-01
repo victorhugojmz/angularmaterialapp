@@ -1,11 +1,14 @@
+/* Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import 'hammerjs';
+
+/* Route Module */
+import { RoutesModule } from './routes';
+
+/* Components */
 import { AppComponent } from './app.component';
-import { MaterialModule } from '@angular/material';
-import { UserService } from './user.service';
 import { ItemComponent } from './item/item.component';
 import { HomeComponent } from './home/home.component';
 
@@ -20,7 +23,7 @@ declarations: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    RoutesModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]
