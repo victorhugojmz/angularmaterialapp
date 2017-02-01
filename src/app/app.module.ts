@@ -11,12 +11,14 @@ import { RoutesModule } from './routes';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './shared/notfound.component';
 
 @NgModule({
 declarations: [
     AppComponent,
     ItemComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
