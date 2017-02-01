@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
 import { UserService } from './user.service';
 import { ItemComponent } from './item/item.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
 declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
