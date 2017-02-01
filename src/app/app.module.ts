@@ -10,7 +10,7 @@ import { RoutesModule } from './routes';
 /* Components */
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 
 @NgModule({
