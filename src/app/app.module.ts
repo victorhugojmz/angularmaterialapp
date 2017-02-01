@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { HomeComponent } from './home/home.component';
 
-
 @NgModule({
 declarations: [
     AppComponent,
