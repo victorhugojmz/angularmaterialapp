@@ -1,14 +1,18 @@
 <div class="container">
-    <h1>Lista de usuarios</h1>
-    <div *ngIf="users" >
-        <ul>
-            <li *ngFor="let user of users">
-                <strong>Id: </strong> {{ user.id }}
-                <strong>Nombre: </strong> {{ user.nombre }}
-                <div *ngIf="user.edad">
-                    <strong>Edad: </strong> {{ user.edad }}
-                </div>
-            </li>
-        </ul>
+<h1>Products</h1>
+    <div class="row">
+        <div *ngFor="let product of products" class="col-md-4 col-xs-6 col-sm-4 col-lg-3">
+            <img style=" width: 400px; height: 400px;"  class="img-responsive" src="{{ product.imagen }}" alt=""> 
+            <div>
+                   {{ product.nombre }}
+            </div>
+            <div>
+                   {{ product.marca }}
+            </div>
+            <div>
+                   {{ product.precio }}
+            </div>
+        </div>
+
     </div>
 </div>

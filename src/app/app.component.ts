@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from './user.service';
 import { OnInit } from '@angular/core';
 import { User } from './user';
+import {Observable, Observer } from 'rxjs/RX'; 
 
  @Component({
   selector: 'app-root',
@@ -10,21 +11,24 @@ import { User } from './user';
   providers: [UserService]
  }) 
  export class AppComponent implements OnInit{
-   users;
-   constructor( private _userService : UserService){
-   }
-   ngOnInit(){ 
+   products: Object[];
+   constructor( private _userService : UserService){ }
+   ngOnInit(){  
      this.traerDatos();
    }
-   public traerDatos( ){ 
-        this._userService.getDatosUsuario()
+   public traerDatos( ) { 
+    this._userService.getDatosUsuario()
                          .subscribe(
-                              usersgotten => {
-                                  this.users = usersgotten
+                              products => {
+                                  this.products = products
                               }, 
                               null,
-                              () => console.log("Succeeded")
-
-                              );
+                              () => console.log("Succeeded"))
    }
+   /*public pushit(name,f_name){ 
+         this._userService.pushObject({name: name, f_name: f_name }).subscribe( 
+               data => console.log(data),
+               error => console.error(error) 
+        )
+   }*/
   }
