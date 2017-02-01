@@ -6,11 +6,13 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
 import { UserService } from './user.service';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
 declarations: [
-    AppComponent
+    AppComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
