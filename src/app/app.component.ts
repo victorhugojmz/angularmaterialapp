@@ -1,21 +1,30 @@
 import { Component } from '@angular/core';
 import { UserService } from './user.service';
 import { OnInit } from '@angular/core';
-import 'rxjs/RX';
+import { User } from './user';
 
  @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [UserService]
-
  }) 
  export class AppComponent implements OnInit{
-   texto: string;
-   users: string[ ];
-   constructor(private _userservice :  UserService){
+   users;
+   constructor( private _userService : UserService){
    }
-   ngOnInit(){ 
-    this._userservice.getUsersData()
+   ngOnInit(){ 
+     this.traerDatos();
+   }
+   public traerDatos( ){ 
+        this._userService.getDatosUsuario()
+                         .subscribe(
+                              usersgotten => {
+                                  this.users = usersgotten
+                              }, 
+                              null,
+                              () => console.log("Succeeded")
+
+                              );
    }
   }

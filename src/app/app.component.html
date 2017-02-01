@@ -1,1 +1,14 @@
-<input type="text" (keydown)="Enter($event)">
+<div class="container">
+    <h1>Lista de usuarios</h1>
+    <div *ngIf="users" >
+        <ul>
+            <li *ngFor="let user of users">
+                <strong>Id: </strong> {{ user.id }}
+                <strong>Nombre: </strong> {{ user.nombre }}
+                <div *ngIf="user.edad">
+                    <strong>Edad: </strong> {{ user.edad }}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
