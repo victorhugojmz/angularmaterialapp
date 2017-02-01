@@ -9,16 +9,18 @@ import { RoutesModule } from './routes';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { ItemComponent } from './item/item.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
+import { ProductsComponent } from './products/products.component';
+import { ListItemComponent } from './products/list-item.component';
 
 @NgModule({
 declarations: [
     AppComponent,
-    ItemComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,
