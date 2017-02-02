@@ -11,10 +11,4 @@ import {Observable, Observer } from 'rxjs/RX';
    constructor(){ }
    ngOnInit(){  
    }
-   /*public pushit(name,f_name){ 
-         this._userService.pushObject({name: name, f_name: f_name }).subscribe( 
-               data => console.log(data),
-               error => console.error(error) 
-        )
-   }*/
   }

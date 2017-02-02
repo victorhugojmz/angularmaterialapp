@@ -1,8 +1,6 @@
 <div class="container">
     <h2>Lista de productos</h2>
     <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-6 col-lg-3">
-            <app-list-item [producto]="producto"></app-list-item>
-        </div>
+       <app-list-item *ngFor="let producto of productos" [producto]="producto"></app-list-item>
     </div>
 </div>
