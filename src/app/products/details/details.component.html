@@ -5,15 +5,21 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                 <h1>{{ producto.nombre }}</h1>
+                <h2>{{ producto.precio | currency:'MXN':true }}</h2>
+                <div *ngIf="producto.descuento">
+                    <h3>Descuento: {{ producto.descuento }}</h3>
+                </div>
                 <p>{{ producto.detalles }}</p>
-                <p>{{ producto.caracteristicas.descripcion }}</p>
+                <div style="float: left;" *ngFor="let color of producto.colores" >
+                    <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}">
+                    </div>
+                </div>
         </div>
     </div>
     <div class="row">
-        <div *ngFor="let object of producto.caracteristicas">
-            {{ object.descripcion }}
-            <div *ngFor="let url of object.imagenes">
-                <img src="{{ url.imagen }}" alt="">
+        <div class="panel">
+            <div class="panel-heading">
+                <h4>Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
             </div>
         </div>
     </div>
