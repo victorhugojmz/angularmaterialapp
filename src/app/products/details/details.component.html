@@ -1,3 +1,6 @@
-<ul *ngIf="producto">
-    {{ producto.stock }}
-</ul>
+<div class="container">
+    <div *ngIf="producto">
+        <h1>{{ producto.nombre }}</h1>
+        <img src="{{ producto.imagen }}" alt="">
+    </div>
+</div>
