@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 @Injectable()
-export class UserService {
+export class ProductsService {
  constructor(private _http:  Http){ 
   }
   private url = "https://dtt-rest-api.firebaseio.com/.json";
