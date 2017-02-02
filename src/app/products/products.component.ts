@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ListComponent } from './list.component';
 
 @Component({
   templateUrl: './products.component.html',

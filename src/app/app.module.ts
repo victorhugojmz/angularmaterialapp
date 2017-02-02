@@ -7,13 +7,17 @@ import { HttpModule } from '@angular/http';
 /* Route Module */
 import { RoutesModule } from './routes';
 
-/* Components */
+//Componentes
 import { AppComponent } from './app.component';
+  //Shared
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+  //Products
 import { ProductsComponent } from './products/products.component';
 import { ListItemComponent } from './products/list-item.component';
 import { ListComponent } from './products/list.component';
+
 
 @NgModule({
 declarations: [
@@ -22,7 +26,8 @@ declarations: [
     NotFoundComponent,
     ProductsComponent,
     ListItemComponent,
-    ListComponent
+    ListComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
