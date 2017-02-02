@@ -13,6 +13,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { ProductsComponent } from './products/products.component';
 import { ListItemComponent } from './products/list-item.component';
+import { ListComponent } from './products/list.component';
 
 @NgModule({
 declarations: [
@@ -20,7 +21,8 @@ declarations: [
     HomeComponent,
     NotFoundComponent,
     ProductsComponent,
-    ListItemComponent
+    ListItemComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
