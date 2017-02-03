@@ -23,4 +23,10 @@ export class ProductsService {
   public getDepartments( ){
       return this._http.get(this._url).map(response => response.json());
   }
+  public getDept(nombre){ 
+     return this.getDepartments()
+                .map((deps) =>{
+                        deps.find(depto => depto.nombre === nombre)
+                    });
+  }
 }

@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
+import { DepartamentodetailsComponent } from './departamentodetails/departamentodetails.component';
 
 // Providers 
 import { ProductsService } from './products.service';
@@ -22,7 +23,8 @@ import { ProductsService } from './products.service';
     ProductsComponent,
     ListComponent,
     ListItemComponent,
-    DetailsComponent
+    DetailsComponent,
+    DepartamentodetailsComponent
   ],
   providers: [ ProductsService ]
 })

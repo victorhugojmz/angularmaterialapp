@@ -1,7 +1,15 @@
-<div class="container">
+<div *ngIf="deps"  class="container">
     <h1>Productos</h1>
-    <div *ngFor="let dep of deps">
-        {{ dep.nombre }}
+    <div class="row">
+        <div  *ngFor="let dep of deps" class="col-md-4">
+            <a class="thumbnail">
+                 <div *ngFor="let url of dep.imagenes"  >
+                    <img src="{{ url.imagen }}" alt="">
+                 </div>
+                 {{ dep.nombre }}
+           </a>
+           <a (click)= "OnSelect(dep)" class="btn btn-primary" role="button">Detalles</a>
+        </div>
     </div>
     <!--<app-list></app-list>-->
 </div>

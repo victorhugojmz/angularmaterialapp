@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
-import { Producto } from '../../products';
 import { ProductsService } from '../products.service';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css'],
-  providers: [ProductsService]
+  selector: 'app-departamentodetails',
+  templateUrl: './departamentodetails.component.html',
+  styleUrls: ['./departamentodetails.component.css']
 })
-export class DetailsComponent implements OnInit {
-  producto;
+export class DepartamentodetailsComponent implements OnInit {
+  depto;
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
        this.route.params
-          .switchMap((params: Params) => this._ProductsService.getProduct(+params['id']))
+          .switchMap((params: Params) => this._ProductsService.getDept(+params['nombre']))
           .subscribe(
-            producto => this.producto = producto,
+            producto => this.depto= producto,
             error => console.log(error)
           ); 
   }
+
 }
