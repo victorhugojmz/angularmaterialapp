@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../products';
 import { ProductsService } from '../products.service';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -12,14 +13,9 @@ export class ListComponent implements OnInit {
   constructor(private _productsService : ProductsService) { 
   }
   ngOnInit() {
-    this.getProductos();
+    /*this.getProductos();*/
   }
   public getProductos() { 
-      this._productsService.getProducts()
-          .subscribe( 
-                 productos => { this.productos = productos },
-                 null,
-                 ( ) => { console.log("Succeded")}
-          );
+      this._productsService.getProducts().subscribe(productos => this.productos = productos);
   }
 }
