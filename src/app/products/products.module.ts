@@ -18,7 +18,7 @@ import { ProductsService } from './products.service';
     CommonModule,
     FormsModule,
     ProductsRoutingModule
-  ],
+  ], 
   declarations: [
     ProductsComponent,
     ListComponent,
