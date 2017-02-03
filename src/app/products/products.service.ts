@@ -25,8 +25,8 @@ export class ProductsService {
   }
   public getDept(nombre){ 
      return this.getDepartments()
-                .map((deps) =>{
-                        deps.find(depto => depto.nombre === nombre)
+                .map((deps) => {
+                        deps.find(depto => depto.nombre === +nombre)
                     });
   }
 }

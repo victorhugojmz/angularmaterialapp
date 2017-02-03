@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
 import { ProductsService } from '../products.service';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-departamentodetails',
@@ -15,8 +16,9 @@ export class DepartamentodetailsComponent implements OnInit {
           .switchMap((params: Params) => this._ProductsService.getDept(+params['nombre']))
           .subscribe(
             producto => this.depto= producto,
-            error => console.log(error)
-          ); 
+            error => console.log(error)    
+          );
+        console.log(this.depto)    
   }
 
 }

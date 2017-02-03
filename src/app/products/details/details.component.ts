@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
 import { Producto } from '../../products';
 import { ProductsService } from '../products.service';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-details',
