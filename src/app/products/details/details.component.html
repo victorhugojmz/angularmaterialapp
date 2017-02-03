@@ -11,15 +11,23 @@
                 </div>
                 <p>{{ producto.detalles }}</p>
                 <div style="float: left;" *ngFor="let color of producto.colores" >
-                    <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}">
-                    </div>
+                    <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}"></div>
                 </div>
         </div>
     </div>
+    <br>
     <div class="row">
-        <div class="panel">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
+                <h4 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
+            </div>
+            <div class="panel-body">
+                <div  class="list-group">
+                    <a class="list-group-item active">
+                        <h5 class="list-group-item-heading"></h5>
+                        <p class="list-group-item-text"></p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
