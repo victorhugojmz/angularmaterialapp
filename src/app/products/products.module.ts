@@ -25,7 +25,7 @@ import { ProductsService } from './products.service';
     ListItemComponent,
     DetailsComponent,
     DepartamentodetailsComponent
-  ],
+],
   providers: [ ProductsService ]
 })
 export class ProductsModule {}

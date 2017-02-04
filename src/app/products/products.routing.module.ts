@@ -7,9 +7,10 @@ import { DepartamentodetailsComponent } from './departamentodetails/departamento
 
 
 const productRoutes: Routes = [
-  { path: 'departamentos',  component: ProductsComponent },
+ /* { path: 'departamentos',  component: ProductsComponent },*/
+  { path: 'productos',  component: ProductsComponent },
+  { path: 'productos/:id', component: DetailsComponent },
   { path: 'departamentos/:nombre', component: DepartamentodetailsComponent},
-  { path: 'productos/:id', component: DetailsComponent }
 ];
 @NgModule({
   imports: [
