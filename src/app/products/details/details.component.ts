@@ -15,9 +15,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
        this.route.params
           .switchMap((params: Params) => this._ProductsService.getProduct(+params['id']))
-          .subscribe(
-            producto => this.producto = producto
-          ); 
-      console.log(this.producto);
+          .subscribe( producto => this.producto = producto ); 
   }
 }

@@ -1,3 +1,4 @@
+ {{ producto | json }}
 <div *ngIf="producto" class="container">
     <div class="row">
         <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
@@ -15,7 +16,6 @@
                  <div style="float: left;" *ngFor="let color of producto.colores" >
                     <div [ngStyle]="{'background-color': color.color, 'width.px': 50, 'height.px':20}"></div>
                 </div>
-                {{ producto.colores | json }}
         </div>
     </div>
     <br>
