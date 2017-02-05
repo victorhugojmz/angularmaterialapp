@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../products.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-departamento',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _productsService : ProductsService , private router: Router) { }
 
   ngOnInit() {
   }
 
-}
+  }
