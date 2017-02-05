@@ -8,7 +8,10 @@ import {Observable, Observer } from 'rxjs/RX';
   styleUrls: ['./app.component.css'],
  }) 
  export class AppComponent implements OnInit{
-   constructor(){ }
+   links: string[];
+   constructor(){ 
+     this.links = ["productos","departamentos"];
+   }
    ngOnInit(){  
    }
   }

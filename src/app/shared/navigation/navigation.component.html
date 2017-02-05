@@ -9,11 +9,11 @@
       </button>
       <a class="navbar-brand" routerLinkActive="active" routerLink="/">Angular app</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse open" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <li routerLinkActive="active"><a routerLink="/productos">Productos</a></li>
+          <li  *ngFor="let link of links"  routerLinkActive="active">
+             <a routerLink="/{{ link }}">{{ link }}</a>
+          </li>
       </ul>
     </div>
   </div>

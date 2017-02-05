@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
 declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

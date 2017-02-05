@@ -13,7 +13,7 @@ export class DepartamentodetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
        this.route.params
-          .switchMap((params: Params) => this._ProductsService.getDept(+params['id']))
+          .switchMap((params: Params) => this._ProductsService.getDept(+params['nombre']))
           .subscribe(
             producto => this.depto= producto,
             error => console.log(error)    
