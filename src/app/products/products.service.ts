@@ -14,10 +14,10 @@ export class ProductsService {
   public getProducts( ): Observable<Producto[]> {
       return this._http.get(this.url).map(response =>  response.json());
   }
-  public getProduct(id: any){ 
+  public getProduct(id){ 
      return this.getProducts()
                 .map((producto: Producto[]) =>{
-                        producto.find(producto =>producto.id === id)
+                        producto.find(producto => producto.id === id)
                     });
   } 
   public getDepartments( ){

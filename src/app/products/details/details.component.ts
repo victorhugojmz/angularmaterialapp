@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
-import { Producto } from '../../products';
-import { ProductsService } from '../products.service';
+import { Producto, ProductsService } from '../../products';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -11,7 +10,7 @@ import 'rxjs/add/operator/switchMap';
   providers: [ProductsService]
 })
 export class DetailsComponent implements OnInit {
-  producto;
+  producto: any;
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
        this.route.params
@@ -19,5 +18,6 @@ export class DetailsComponent implements OnInit {
           .subscribe(
             producto => this.producto = producto
           ); 
+      console.log(this.producto);
   }
 }

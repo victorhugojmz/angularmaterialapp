@@ -8,7 +8,6 @@ import { DepartamentoComponent } from './departamento/departamento.component';
 
 
 const productRoutes: Routes = [
- /* { path: 'departamentos',  component: ProductsComponent },*/
   { path: 'productos',  component: ProductsComponent },
   { path: 'productos/:id', component: DetailsComponent },
   { path: 'departamentos', component: DepartamentoComponent },  
