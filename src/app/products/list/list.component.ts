@@ -10,12 +10,19 @@ import { ProductsService } from '../products.service';
 })
 export class ListComponent implements OnInit {
   productos:  Producto[ ];
+  loading: boolean;
   constructor(private _productsService : ProductsService) { 
+    this.loading = true;
   }
   ngOnInit() {
     this.getProductos();
   }
   public getProductos() { 
-      this._productsService.getProducts().subscribe(productos => this.productos = productos);
+      this._productsService.getProducts()
+                           .subscribe(
+                             productos => this.productos = productos,
+                             null,
+                             ()=> this.loading = false
+                             );
   }
 }
