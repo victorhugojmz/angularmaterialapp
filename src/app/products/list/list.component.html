@@ -4,6 +4,6 @@
                 <option *ngFor="let select of productos"  value="{{ select.departamento }}">{{ select.departamento }}</option>
             </select>
      </div>
-     <app-loader [is_loading]="loading"></app-loader>
+     <app-loader *ngIf="loading"></app-loader>
      <app-list-item *ngFor="let producto of productos" [producto]="producto"></app-list-item>
 </div>
