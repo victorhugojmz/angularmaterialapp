@@ -12,6 +12,7 @@ import { DepartamentodetailsComponent } from './departamentodetails/departamento
 
 // Providers 
 import { ProductsService } from './products.service';
+import { DepartamentoComponent } from './departamento/departamento.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ProductsService } from './products.service';
     ListComponent,
     ListItemComponent,
     DetailsComponent,
-    DepartamentodetailsComponent
+    DepartamentodetailsComponent,
+    DepartamentoComponent
 ],
   providers: [ ProductsService ]
 })
