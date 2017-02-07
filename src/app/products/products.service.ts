@@ -3,6 +3,11 @@ import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
 import { Producto } from '../products';
 import 'rxjs/add/operator/map';
+class Departmento { 
+   nombre: string;
+   id: number;
+   imagenes: string[];
+}
 @Injectable()
 export class ProductsService { 
  constructor(private _http:  Http){ 
@@ -13,17 +18,13 @@ export class ProductsService {
       return this._http.get(this.url)
                        .map(response =>  response.json());
   }
- public getProduct(id){ 
+  public getProduct(id){ 
      return this.getProducts().map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }
   public getDepartments( ){
-      return this._http.get(this._url)
-                        .map(response => response.json());
+      return this._http.get(this._url).map(response => response.json());
   }
   public getDept(nombre){ 
-     return this.getDepartments()
-                .map((deps) => {
-                        deps.find(depto => depto.nombre === nombre)
-                    });
+     return this.getDepartments().map((deps : Departmento[]) => deps.find(depto => depto.nombre === nombre));
   }
 }

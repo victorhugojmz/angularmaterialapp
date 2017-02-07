@@ -11,8 +11,9 @@ import {Observable, Observer } from 'rxjs/RX';
    links: Object[];
    constructor(){  
      this.links = [
-           { title:'Productos',route:'/productos'},
-           { title:'Departamentos',route: '/departamentos'} 
+           { title:'Departamentos',route: '/departamentos'},
+           { title:'Contacto', route: '/contacto'},
+           { title:'About', route: '/about' }
      ];
    }
    ngOnInit(){  

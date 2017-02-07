@@ -1,6 +1,17 @@
 <div *ngIf="depto" >
   <h1>Details works</h1>
-  {{ depto | json }}  
-</div>
+   <div class="form-group">
+            <select class="form-control">
+                <option>Escoge una opcion</option>
+                <option *ngFor="let select of depto.marcas"  value="{{ depto.marcas }}">{{ select.nombre }}</option>
+            </select>
+     </div>
+     <div  *ngFor="let opt of depto.marcas">
+       {{ opt.nombre_prod}}
+       {{ opt.dep_nombre }}
+       <a (click) ="onSelect(opt)">{{ opt.id }}</a>
+     </div>
+  <a>{{ depto.nombre }}</a>
+ </div>
 
 

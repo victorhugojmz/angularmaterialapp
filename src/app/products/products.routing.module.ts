@@ -8,10 +8,10 @@ import { DepartamentoComponent } from './departamento/departamento.component';
 
 
 const productRoutes: Routes = [
-  { path: 'productos',  component: ProductsComponent },
-  { path: 'productos/:id', component: DetailsComponent },
   { path: 'departamentos', component: DepartamentoComponent },  
   { path: 'departamentos/:nombre', component: DepartamentodetailsComponent},
+  { path: 'departamentos/:nombre/productos/:id', component: DetailsComponent },
+
 ];
 @NgModule({
   imports: [
