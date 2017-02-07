@@ -9,9 +9,11 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  producto: any;
-  constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
+  producto;
+  constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) {
+  }
   ngOnInit() {
-       this.route.params.switchMap((params: Params) => this._ProductsService.getProduct(+params['id'])).subscribe( producto => this.producto = producto ); 
+       this.route.params
+                   .switchMap((params: Params) => this._ProductsService.getProduct(+params['id'])).subscribe( producto => this.producto = producto ); 
   }
 }

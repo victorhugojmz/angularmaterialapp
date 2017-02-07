@@ -1,9 +1,9 @@
 <div *ngIf="deps"  class="container">
     <h1>Departamentos</h1>
     <div class="row">
-        <div  *ngFor="let dep of deps" class="col-md-4">
-            <a class="thumbnail">
-                 <div *ngFor="let url of dep.imagenes"  >
+        <div  *ngFor="let dep of deps" class="col-md-6">
+            <a   *ngFor="let url of dep.imagenes" class="thumbnail">
+                 <div>
                     <img src="{{ url.imagen }}" alt="">
                  </div>
                  {{ dep.nombre }}
