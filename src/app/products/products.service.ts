@@ -13,12 +13,9 @@ export class ProductsService {
       return this._http.get(this.url)
                        .map(response =>  response.json());
   }
-  public getProduct(id){ 
-     return this.getProducts()
-                .map((producto: Producto[]) =>{
-                        producto.find(producto => producto.id === +id)
-                    });
-  } 
+ public getProduct(id){ 
+     return this.getProducts().map((producto: Producto[]) => producto.find(producto => producto.id === id));
+  }
   public getDepartments( ){
       return this._http.get(this._url)
                         .map(response => response.json());

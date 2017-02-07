@@ -1,8 +1,7 @@
 <div *ngIf="producto" class="container">
-    {{ producto | json }}
     <div class="row">
         <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
-                <img class="img img-responsive" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                <img class="img img-responsive" src="{{ producto.imagen }}" alt="">
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                 <h1>{{ producto.nombre }}</h1>
@@ -11,15 +10,13 @@
                     <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
                 </div>
                 <p>{{ producto.detalles }}</p>
-                <div class="alert alert-danger" *ngIf="producto.stock < 10">Hay pocas unidades de este producto</div>
-                <br>
-                 <div style="float: left;" *ngFor="let color of producto.colores" >
-                    <div [ngStyle]="{'background-color': color.color, 'width.px': 50, 'height.px':20}"></div>
+                <div style="float: left;" *ngFor="let color of producto.colores" >
+                    <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}"></div>
                 </div>
         </div>
     </div>
     <br>
-    <section class="row">
+    <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
@@ -28,10 +25,10 @@
                 <div class="list-group">
                     <a *ngFor="let espec of producto.especificaciones"  class="list-group-item">
                         <strong><h5 class="list-group-item-heading">{{ espec.item }}</h5></strong>
-                        <p class="list-group-item-text"> {{ espec.item-descripcion | number:'2.2' }}</p>
+                        <p class="list-group-item-text"> {{ espec.item-descripcion }}</p>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </div>
