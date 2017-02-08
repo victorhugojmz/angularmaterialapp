@@ -11,17 +11,13 @@ import { ProductsService } from '../products.service';
 })
 export class DetailsComponent implements OnInit {
   producto: Producto;
-  loading: boolean;
-  constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { 
-    this.loading = true;
-  }
+  constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
-       this.route.params
+    this.getProduct();
+  }
+  getProduct( ){
+         this.route.params
           .switchMap((params: Params) => this._ProductsService.getProduct(+params['id']))
-          .subscribe(
-            producto => this.producto = producto,
-            error => console.log(error),
-            () =>  this.loading = false;
-          ); 
+          .subscribe(producto => this.producto = producto); 
   }
 }

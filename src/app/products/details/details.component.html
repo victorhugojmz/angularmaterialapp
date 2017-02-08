@@ -1,38 +1,37 @@
+<app-loader *ngIf="!producto"></app-loader>
 <div class="container">
-    
     <div *ngIf="producto">
-    <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
-                <img class="img img-responsive" src="{{ producto.imagen }}" alt="">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
-                <h1>{{ producto.nombre }}</h1>
-                <h2>{{ producto.precio | currency:'MXN':true }}</h2>
-                <div *ngIf="producto.descuento">
-                    <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
+                        <img class="img img-responsive" src="{{ producto.imagen }}" alt="">
                 </div>
-                <p>{{ producto.detalles }}</p>
-                <div style="float: left;" *ngFor="let color of producto.colores" >
-                    <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}"></div>
-                </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
-            </div>
-            <div class="panel-body">
-                <div class="list-group">
-                    <a *ngFor="let espec of producto.especificaciones"  class="list-group-item">
-                        <strong><h5 class="list-group-item-heading">{{ espec.item }}</h5></strong>
-                        <p class="list-group-item-text"> {{ espec.item-descripcion }}</p>
-                    </a>
+                <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
+                        <h1>{{ producto.nombre }}</h1>
+                        <h2>{{ producto.precio | currency:'MXN':true }}</h2>
+                        <div *ngIf="producto.descuento">
+                            <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
+                        </div>
+                        <p>{{ producto.detalles }}</p>
+                        <div style="float: left;" *ngFor="let color of producto.colores" >
+                            <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}"></div>
+                        </div>
                 </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a *ngFor="let espec of producto.especificaciones"  class="list-group-item">
+                                <strong><h5 class="list-group-item-heading">{{ espec.item }}</h5></strong>
+                                <p class="list-group-item-text"> {{ espec.item-descripcion }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
 </div>

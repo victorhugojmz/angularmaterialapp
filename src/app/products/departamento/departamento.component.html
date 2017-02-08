@@ -1,15 +1,10 @@
 <div class="container">
     <h1>Departamentos</h1>
-    <app-loader *ngIf="loading"></app-loader>
+    <app-loader *ngIf="!deps"></app-loader>
     <div *ngIf="deps" class="row">
-        <div  *ngFor="let dep of deps" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-            <a   *ngFor="let url of dep.imagenes" class="thumbnail">
-                 <div>
-                    <img src="{{ url.imagen }}" alt="">
-                 </div>
-                 {{ dep.nombre }}
-           </a>
-           <a (click)= "OnSelect(dep)" class="btn btn-primary" role="button">Detalles</a>
+        <div  *ngFor="let dep of deps" class="col-md-4">
+           <h2>{{ dep.nombre }}</h2>
+           <button (click)="OnSelect(dep)" class="btn btn-primary"> Detalles</button>
         </div>
-</div>
+    </div>
 </div>
