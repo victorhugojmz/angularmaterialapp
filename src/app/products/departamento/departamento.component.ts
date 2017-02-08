@@ -13,12 +13,19 @@ class Departmento { 
 })
 export class DepartamentoComponent implements OnInit {
   deps: Departmento;
-  constructor(private _productsService : ProductsService , private router: Router) { }
+  loading: boolean;
+  constructor(private _productsService : ProductsService , private router: Router) { 
+    this.loading = true;
+  }
   ngOnInit() {
-    this.getdps();
+      this.getdps();
   }
   public getdps( ){
-      this._productsService.getDepartments().subscribe(deps => this.deps = deps); 
+      this._productsService.getDepartments().subscribe(
+                              deps => this.deps = deps,
+                              err =>  console.error(err),
+                              () => this.loading = false 
+                              ); 
   }
   public OnSelect(dep){
       this.router.navigate(['/departamentos', dep.nombre]);

@@ -1,6 +1,7 @@
-<div *ngIf="deps"  class="container">
+<div class="container">
     <h1>Departamentos</h1>
-    <div class="row">
+    <app-loader *ngIf="loading"></app-loader>
+    <div *ngIf="deps" class="row">
         <div  *ngFor="let dep of deps" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
             <a   *ngFor="let url of dep.imagenes" class="thumbnail">
                  <div>
@@ -10,4 +11,5 @@
            </a>
            <a (click)= "OnSelect(dep)" class="btn btn-primary" role="button">Detalles</a>
         </div>
-    </div>
+</div>
+</div>
