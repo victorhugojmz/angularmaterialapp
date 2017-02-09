@@ -4,7 +4,6 @@ import { FormsModule }    from '@angular/forms';
 
 import { ProductsRoutingModule } from './products.routing.module';
 // Components
-import { ProductsComponent } from './products/products.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
@@ -14,6 +13,7 @@ import { DepartamentodetailsComponent } from './departamentodetails/departamento
 import { ProductsService } from './products.service';
 import { DepartamentoComponent } from './departamento/departamento.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { ContactComponent } from './Users/vicbarriosjimenez/Desktop/proyecto-angular/src/app/shared/contact/contact.component';
 
 
 @NgModule({
@@ -23,13 +23,13 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     ProductsRoutingModule
   ], 
   declarations: [
-    ProductsComponent,
     ListComponent,
     ListItemComponent,
     DetailsComponent,
     DepartamentodetailsComponent,
     DepartamentoComponent,
-    LoaderComponent
+    LoaderComponent,
+    ContactComponent
 ],
   providers: [ ProductsService ]
 })
