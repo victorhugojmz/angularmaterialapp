@@ -27,4 +27,7 @@ export class ProductsService {
   public getDept(nombre){ 
      return this.getDepartments().map((deps : Departmento[]) => deps.find(depto => depto.nombre === nombre));
   }
+  public getexactData() {
+      return this.getProducts().map((productos: Producto[]) => productos.filter(producto => producto.departamento == "Electronics"));
+  }
 }

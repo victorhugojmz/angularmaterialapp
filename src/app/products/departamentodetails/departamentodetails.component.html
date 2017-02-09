@@ -6,5 +6,8 @@
                 <option>Escoge una opcion</option>
                 <option *ngFor="let select of depto.marcas"  value="{{ depto.marcas }}">{{ select.nombre }}</option>
             </select>
+           <div *ngFor="let valw of val">
+            {{ valw.nombre }}   - {{ valw.marca }}
+          </div> 
   </div>
 </div>
