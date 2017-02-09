@@ -14,6 +14,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { ContactComponent } from './shared/contact/contact.component';
+import { AboutComponent } from './shared/about.component';
 
 @NgModule({
 declarations: [
@@ -21,7 +22,8 @@ declarations: [
     HomeComponent,
     NotFoundComponent,
     NavigationComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

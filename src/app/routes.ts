@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { ContactComponent } from './shared/contact/contact.component';
+import { AboutComponent } from './shared/about.component';
 /* Componentes */
 import { AppComponent } from './app.component';
-const appRoutes: Routes = [
+ const appRoutes: Routes = [
   { path: '',  component:  HomeComponent },
   { path: '**', component: NotFoundComponent},
-  { path: '/contact', component:  ContactComponent} 
-  ];
+  { path: 'contact', component:  ContactComponent}, 
+  { path: 'about', component: AboutComponent}
+ ];
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes)
@@ -18,6 +20,4 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class RoutesModule {
-
-}
+export class RoutesModule { }
