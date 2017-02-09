@@ -1,6 +1,6 @@
 export class Departamento {
     public nombre: string;
-    public descripcion: string;
+    public descripcion ?: string;
     public hero: string;
     public imagenes: Array<string>;
     public marca: Marca[];

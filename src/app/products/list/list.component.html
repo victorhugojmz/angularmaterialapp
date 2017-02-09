@@ -1,10 +1,4 @@
 <div class="row">
-     <div class="form-group">
-            <select class="form-control">
-                <option>Escoge una opcion</option>
-                <option *ngFor="let select of productos"  value="{{ select.departamento }}">{{ select.departamento }}</option>
-            </select>
-     </div>
      <app-loader *ngIf="loading"></app-loader>
      <app-list-item *ngFor="let producto of productos" [producto]="producto"></app-list-item>
 </div>

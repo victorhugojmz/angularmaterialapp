@@ -1,8 +1,8 @@
 <div class="container">
     <h1>Departamentos</h1>
-    <app-loader *ngIf="!deps"></app-loader>
-    <div *ngIf="deps" class="row">
-        <div  *ngFor="let dep of deps" class="col-md-4">
+    <app-loader *ngIf="!departamentos"></app-loader>
+    <div *ngIf="departamentos" class="row">
+        <div  *ngFor="let dep of departamentos" class="col-md-4">
            <h2>{{ dep.nombre }}</h2>
            <button (click)="OnSelect(dep)" class="btn btn-primary"> Detalles</button>
         </div>

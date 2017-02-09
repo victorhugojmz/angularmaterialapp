@@ -13,6 +13,9 @@ import { DepartamentodetailsComponent } from './departamentodetails/departamento
 import { ProductsService } from './products.service';
 import { DepartamentoComponent } from './departamento/departamento.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { ContactComponent } from '../shared/contact/contact.component';
+import { AboutComponent } from '../shared/about.component';
+
 
 @NgModule({
   imports: [
@@ -26,7 +29,9 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     DetailsComponent,
     DepartamentodetailsComponent,
     DepartamentoComponent,
-    LoaderComponent
+    LoaderComponent,
+    ContactComponent,
+    AboutComponent
 ],
   providers: [ ProductsService ]
 })

@@ -8,9 +8,7 @@ import { AboutComponent } from './shared/about.component';
 import { AppComponent } from './app.component';
  const appRoutes: Routes = [
   { path: '',  component:  HomeComponent },
-  { path: '**', component: NotFoundComponent},
-  { path: 'contact', component:  ContactComponent}, 
-  { path: 'about', component: AboutComponent}
+  { path: '**', component: NotFoundComponent}
  ];
 @NgModule({
   imports: [

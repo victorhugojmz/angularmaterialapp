@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
-import { ProductsService } from '../products.service';
+import { ProductsService, Departamento , Producto} from '../../products';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -9,14 +9,30 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./departamentodetails.component.css']
 })
 export class DepartamentodetailsComponent implements OnInit {
-  depto;
-  val;
+  departamento;
+  productos: Producto[];
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
-       this.route.params.switchMap((params: Params) => this._ProductsService.getDept(params['nombre'])).subscribe(depto => this.depto = depto, error => console.log(error));
-       this._ProductsService.getexactData().subscribe(value => this.val = value);
+       this.getDepartament();
+       this.getProductsRelatedtoDepartment();
   }
   onSelect(opt){
       this.router.navigate(['/departamentos' + '/' + opt.dep_nombre+ '/productos' +  '/', opt.id]);
+  }
+  public getProductsRelatedtoDepartment(){
+      this._ProductsService.getexactData()
+                           .subscribe(
+                              productos => this.productos = productos,
+                              error => console.log(error),
+                              () => console.log("Succeded!")
+                              );
+  }
+  private getDepartament(){
+      this.route.params.switchMap((params: Params) => this._ProductsService.getDept(params['nombre']))
+                       .subscribe(
+                             departamento => this.departamento = departamento,
+                             error => console.log(error),
+                             () => console.log("Succeeded!")
+                             );
   }
 }

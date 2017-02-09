@@ -1,13 +1,5 @@
 <div class="container">
-  <div *ngIf="depto" >
-  <h1>{{ depto.nombre }}</h1>
-   <div class="form-group">
-            <select class="form-control">
-                <option>Escoge una opcion</option>
-                <option *ngFor="let select of depto.marcas"  value="{{ depto.marcas }}">{{ select.nombre }}</option>
-            </select>
-           <div *ngFor="let valw of val">
-            {{ valw.nombre }}   - {{ valw.marca }}
-          </div> 
+  <div *ngIf="departamento" >
+    <h1>{{ departamento.nombre }}</h1>
   </div>
 </div>

@@ -13,17 +13,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { ContactComponent } from './shared/contact/contact.component';
-import { AboutComponent } from './shared/about.component';
 
 @NgModule({
 declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    NavigationComponent,
-    ContactComponent,
-    AboutComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
