@@ -2,7 +2,7 @@
     <h1>Departamentos</h1>
     <app-loader *ngIf="!departamentos"></app-loader>
     <div *ngIf="departamentos" class="row">
-        <div  *ngFor="let dep of departamentos" class="col-md-4">
+        <div  *ngFor="let dep of departamentos" class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
            <h2>{{ dep.nombre }}</h2>
            <button (click)="OnSelect(dep)" class="btn btn-primary"> Detalles</button>
         </div>
