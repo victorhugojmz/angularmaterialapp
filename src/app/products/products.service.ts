@@ -9,7 +9,7 @@ export class ProductsService {
   }
   private url = "https://dtt-rest-api.firebaseio.com/.json";
   private _url = "https://ngdevapi.firebaseio.com/departamentos/.json";
-  public getProducts( ): Observable<Producto[]> {
+  public getProducts(): Observable<Producto[]> {
       return this._http.get(this.url)
                        .map(response =>  response.json());
   }

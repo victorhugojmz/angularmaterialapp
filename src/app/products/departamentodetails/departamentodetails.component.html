@@ -1,6 +1,10 @@
 <div  *ngIf="departamento">
   <app-parallax [departamento]="departamento"></app-parallax>
-  <div class="container"> 
+  <div class="container">
+    <select  #brand (change)="getFileredValue(brand.value)" class="form-control">
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let filter of productos"   value="" >{{ filter.marca }}</option>
+    </select> 
     <h2>Productos</h2>
       <div class="row">
         <app-loader *ngIf="!productos"></app-loader>

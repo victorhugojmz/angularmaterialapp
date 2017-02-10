@@ -23,9 +23,10 @@ export class DepartamentodetailsComponent implements OnInit {
   private getDepartament(){
       this.route.params.switchMap((params: Params) => this._ProductsService.getDept(params['nombre']))
                        .subscribe(
-                               departamento => this.departamento = departamento,
-                               error => console.log(error),
-                               () => console.log("Succeeded!")
+                               departamento => this.departamento = departamento
                              );
+  }
+  public getFileredValue(brand){
+     this._ProductsService.getProducts()
   }
 }
