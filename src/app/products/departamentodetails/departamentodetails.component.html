@@ -1,8 +1,10 @@
-<app-loader  *ngIf="!departamento"></app-loader>
 <div  *ngIf="departamento">
   <app-parallax [departamento]="departamento"></app-parallax>
   <div class="container"> 
     <h2>Productos</h2>
-    {{ productos | json }}
+      <div class="row">
+        <app-loader *ngIf="!productos"></app-loader>
+        <app-list-item *ngFor="let producto of productos" [producto]="producto"></app-list-item>
+      </div>
   </div>
 </div>

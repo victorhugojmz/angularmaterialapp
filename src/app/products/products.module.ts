@@ -5,7 +5,6 @@ import { FormsModule }    from '@angular/forms';
 import { ProductsRoutingModule } from './products.routing.module';
 // Components
 import { ListItemComponent } from './list-item/list-item.component';
-import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { DepartamentodetailsComponent } from './departamentodetails/departamentodetails.component';
 
@@ -25,7 +24,6 @@ import { ParallaxComponent } from './parallax/parallax.component';
     ProductsRoutingModule
   ], 
   declarations: [
-    ListComponent,
     ListItemComponent,
     DetailsComponent,
     DepartamentodetailsComponent,
