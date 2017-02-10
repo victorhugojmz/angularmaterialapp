@@ -25,8 +25,9 @@ export class ProductsService {
      return this.getDepartments()
                 .map((departamentos: Departamento[]) => departamentos.find(depto => depto.nombre === nombre));
   }
-  public getexactData(nombre) {
-      return this.getProducts()
-                 .map((productos: Producto[]) => productos.filter(producto => producto.departamento == nombre));
-  }
+  public getListOfProductsFromDepartment(nombre) {
+        return this.getProducts()
+                   .map((productos: Producto[]) => productos
+                   .filter(producto => producto.departamento == nombre));
+      }
 }

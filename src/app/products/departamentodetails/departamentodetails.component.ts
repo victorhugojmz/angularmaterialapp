@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./departamentodetails.component.css']
 })
 export class DepartamentodetailsComponent implements OnInit {
-  departamento;
+  departamento: Departamento;
   productos: Producto[];
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
@@ -17,7 +17,7 @@ export class DepartamentodetailsComponent implements OnInit {
        this.getProductsRelatedtoDepartment();
   }
   public getProductsRelatedtoDepartment(){
-    this.route.params.switchMap((params: Params) =>  this._ProductsService.getexactData(params['nombre']))
+    this.route.params.switchMap((params: Params) =>  this._ProductsService.getListOfProductsFromDepartment(params['nombre']))
                      .subscribe(productos => this.productos = productos);
   }
   private getDepartament(){
@@ -25,8 +25,5 @@ export class DepartamentodetailsComponent implements OnInit {
                        .subscribe(
                                departamento => this.departamento = departamento
                              );
-  }
-  public getFileredValue(brand){
-     this._ProductsService.getProducts()
   }
 }
