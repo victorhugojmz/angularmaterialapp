@@ -1,5 +1,8 @@
+<app-loader  *ngIf="!departamento"></app-loader>
 <div  *ngIf="departamento">
-  <app-parallax></app-parallax>
+  <app-parallax [departamento]="departamento"></app-parallax>
   <div class="container"> 
+    <h2>Productos</h2>
+    <app-list></app-list>
   </div>
 </div>

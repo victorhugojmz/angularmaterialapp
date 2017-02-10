@@ -6,9 +6,7 @@ import { Departamento } from '../../products';
   styleUrls: ['./parallax.component.css']
 })
 export class ParallaxComponent implements OnInit {
-  hero: string;
+  @Input() departamento;
   constructor() {}
-  ngOnInit() {  
-      this.hero = "https://static.pexels.com/photos/30222/pexels-photo-30222.jpg";
-  }
+  ngOnInit() {  }
 }

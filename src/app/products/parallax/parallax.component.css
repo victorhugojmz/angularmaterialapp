@@ -1,17 +1,18 @@
 header {
-    padding: 20px;
+    padding: 20px 50px;
+    margin-top: -20px; 
     color: white; 
     width: 100vw;
-    height: 60vh;
+    height: 40vh;
     background-size: cover;
     display: flex;
     flex-direction:column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
 header h1{
   padding: 5px; 
-  font-size: 4em;
+  font-size: 4.5em;
 }

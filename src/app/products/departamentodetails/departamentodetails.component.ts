@@ -16,23 +16,18 @@ export class DepartamentodetailsComponent implements OnInit {
        this.getDepartament();
        this.getProductsRelatedtoDepartment();
   }
-  onSelect(opt){
-      this.router.navigate(['/departamentos' + '/' + opt.dep_nombre+ '/productos' +  '/', opt.id]);
-  }
   public getProductsRelatedtoDepartment(){
       this._ProductsService.getexactData()
                            .subscribe(
-                              productos => this.productos = productos,
-                              error => console.log(error),
-                              () => console.log("Succeded!")
+                                productos => this.productos = productos
                               );
   }
   private getDepartament(){
       this.route.params.switchMap((params: Params) => this._ProductsService.getDept(params['nombre']))
                        .subscribe(
-                             departamento => this.departamento = departamento,
-                             error => console.log(error),
-                             () => console.log("Succeeded!")
+                               departamento => this.departamento = departamento,
+                               error => console.log(error),
+                               () => console.log("Succeeded!")
                              );
   }
 }

@@ -13,16 +13,16 @@ export class DepartamentoComponent implements OnInit {
     this.loading = true;
   }
   ngOnInit() {
-      this.getdps();
+      this.getEveryDepartmentToView();
   }
-  public getdps( ){
-      this._productsService.getDepartments().subscribe(
+  public getEveryDepartmentToView( ){
+      this._productsService.getDepartments( ).subscribe(
                               departamentos => this.departamentos = departamentos,
                               err =>  console.error(err),
                               () => this.loading = false 
                               ); 
   }
-  public OnSelect(dep){
-      this.router.navigate(['/departamentos', dep.nombre]);
+  public OnSelect(departamento: Departamento){
+      this.router.navigate(['/departamentos', departamento.nombre ]);
   }
 }

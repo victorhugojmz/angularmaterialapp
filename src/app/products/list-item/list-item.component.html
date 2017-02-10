@@ -5,7 +5,7 @@
           <h3>{{ producto.nombre }}</h3>
           <h4>{{ producto.precio | currency: 'MXN':true }}</h4>
           <h4>{{ producto.marca }}</h4>
-          <p><a (click)= "OnSelect(producto)" class="btn btn-primary" role="button">Detalles</a></p>
+          <p><a (click)= "OnSelectedProduct(producto)" class="btn btn-primary" role="button">Detalles</a></p>
         </div>
   </div>
 </div>
