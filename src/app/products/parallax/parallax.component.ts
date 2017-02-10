@@ -6,9 +6,10 @@ import { Departamento } from '../../products';
   styleUrls: ['./parallax.component.css']
 })
 export class ParallaxComponent implements OnInit {
-  @Input() departamento: Departamento;
+  hero: string;
   constructor() {}
-  ngOnInit() {
+  ngOnInit() {  
+      this.hero = "http://www.myfashionlife.com/wp-content/uploads/2014/06/adidas-harrods.jpg";
   }
 
 }

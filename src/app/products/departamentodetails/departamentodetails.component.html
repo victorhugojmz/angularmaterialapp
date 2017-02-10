@@ -1,5 +1,6 @@
-<div class="container">
-  <div *ngIf="departamento">
-    <app-parallax [departamento]="departamento"></app-parallax>
+<div  *ngIf="departamento">
+  <app-parallax></app-parallax>
+  <div class="container">
+    {{ departamento.nombre }}   
   </div>
 </div>
