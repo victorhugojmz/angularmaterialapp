@@ -8,21 +8,16 @@ import { Router} from '@angular/router';
 })
 export class DepartamentoComponent implements OnInit {
   departamentos:  Departamento[];
-  loading: boolean;
-  constructor(private _productsService : ProductsService , private router: Router) { 
-    this.loading = true;
-  }
+  constructor(private _productsService : ProductsService , private router: Router) { }
   ngOnInit() {
       this.getEveryDepartmentToView();
   }
   public getEveryDepartmentToView( ){
       this._productsService.getDepartments( ).subscribe(
-                              departamentos => this.departamentos = departamentos,
-                              err =>  console.error(err),
-                              () => this.loading = false 
+                              departamentos => this.departamentos = departamentos
                               ); 
   }
-  public OnSelect(departamento: Departamento){
+  public OnSelectedDepartment(departamento: Departamento){
       this.router.navigate(['/departamentos', departamento.nombre ]);
   }
 }

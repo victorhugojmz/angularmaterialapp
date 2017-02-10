@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
-import { Producto } from '../products';
+import { Producto , Departamento } from '../products';
 import 'rxjs/add/operator/map';
-class Departmento { 
-   nombre: string;
-   id: number;
-   imagenes: string[];
-}
 @Injectable()
 export class ProductsService { 
  constructor(private _http:  Http){ 
@@ -18,16 +13,20 @@ export class ProductsService {
       return this._http.get(this.url)
                        .map(response =>  response.json());
   }
-  public getProduct(id){ 
-     return this.getProducts().map((producto: Producto[]) => producto.find(producto => producto.id === id));
+  public getProduct(id) : Observable<Producto>{ 
+     return this.getProducts()
+                .map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }
   public getDepartments( ){
-      return this._http.get(this._url).map(response => response.json());
+      return this._http.get(this._url)
+                       .map(response => response.json());
   }
   public getDept(nombre){ 
-     return this.getDepartments().map((deps : Departmento[]) => deps.find(depto => depto.nombre === nombre));
+     return this.getDepartments()
+                .map((departamentos: Departamento[]) => departamentos.find(depto => depto.nombre === nombre));
   }
-  public getexactData() {
-      return this.getProducts().map((productos: Producto[]) => productos.filter(producto => producto.departamento == "Electronics"));
+  public getexactData(nombre) {
+      return this.getProducts()
+                 .map((productos: Producto[]) => productos.filter(producto => producto.departamento == nombre));
   }
 }
