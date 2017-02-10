@@ -9,7 +9,6 @@ export class ParallaxComponent implements OnInit {
   hero: string;
   constructor() {}
   ngOnInit() {  
-      this.hero = "http://www.myfashionlife.com/wp-content/uploads/2014/06/adidas-harrods.jpg";
+      this.hero = "https://static.pexels.com/photos/30222/pexels-photo-30222.jpg";
   }
-
 }
