@@ -15,6 +15,7 @@ import { DepartamentoComponent } from './departamento/departamento.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { ContactComponent } from '../shared/contact/contact.component';
 import { AboutComponent } from '../shared/about.component';
+import { ParallaxComponent } from './parallax/parallax.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AboutComponent } from '../shared/about.component';
     DepartamentoComponent,
     LoaderComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    ParallaxComponent
 ],
   providers: [ ProductsService ]
 })
