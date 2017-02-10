@@ -17,7 +17,7 @@ export class DepartamentodetailsComponent implements OnInit {
        this.getProductsRelatedtoDepartment();
   }
   public getProductsRelatedtoDepartment(){
-    this.route.params.switchMap((params: Params)=>  this._ProductsService.getexactData(params['nombre']))
+    this.route.params.switchMap((params: Params) =>  this._ProductsService.getexactData(params['nombre']))
                      .subscribe(productos => this.productos = productos);
   }
   private getDepartament(){
