@@ -14,7 +14,6 @@ export class DepartamentodetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
        this.getDepartament();
-       this.getProductsRelatedtoDepartment();
   }
   private getDepartament(){
       this.route.params.switchMap((params: Params) => this._ProductsService.getDept(params['nombre']))
