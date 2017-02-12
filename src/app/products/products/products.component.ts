@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto, departamentosQuerySet ,Departamento } from '../../products';
-import { ProductsService } from '../products.service';
+import { ProductsService ,Producto, departamentosQuerySet ,Departamento } from '../../products';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css'],
-  providers : [ ProductsService ],
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  ListOfProducts: Producto[];
-  departamentos: Departamento[];
-  departamento: Departamento;
+  public ListOfProducts: Producto[];
+  public departamentos: Departamento[];
+  public departamento: Departamento;
   constructor(private _ProductsService : ProductsService) { this.departamentos = departamentosQuerySet;}
   ngOnInit() {
     this.getListOfProducts();
@@ -26,5 +24,6 @@ export class ProductsComponent implements OnInit {
   }
   private setDepartmentTorenderView(deparmentNameToSet: string): void {
         this.departamento = departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);
+        console.log(this.departamento.hero);
   }
 }
