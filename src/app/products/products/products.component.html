@@ -1,6 +1,6 @@
+<app-parallax  *ngIf="depto" [departamento]="depto"></app-parallax>
 <app-loader *ngIf="!ListOfProducts"></app-loader>
 <div *ngIf="ListOfProducts" class="container">
-  <app-parallax *ngIf="departamento"  [departamento]="departamento"></app-parallax>
   <form class="form">
     <div class="form-group">
       <select  class="form-control" #departamento (change)="filterProductsPerDepartment(departamento.value)">
