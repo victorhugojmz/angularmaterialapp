@@ -15,7 +15,6 @@ import { AboutComponent } from '../shared/about.component';
 import { ParallaxComponent } from './parallax/parallax.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
-import { GrowDirective } from './grow.directive';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +31,6 @@ import { GrowDirective } from './grow.directive';
     ParallaxComponent,
     FilterPipe,
     SearchComponent,
-    GrowDirective
 ],
   providers: [ ProductsService ]
 })

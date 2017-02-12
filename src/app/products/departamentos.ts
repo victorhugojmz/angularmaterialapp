@@ -13,4 +13,4 @@ export const departamentosQuerySet: Departamento[ ] = [
     { nombre: "Shoes", descripcion: "lalalala" , hero: "https://m.media-amazon.com/images/G/01/6pm/landing/coop/shoes/170201COOP/1._V534799631_.jpg"},
     { nombre: "Tools", descripcion: "lalalala" , hero: "https://www.clearpointstrategy.com/wp-content/uploads/2015/03/Reporting-Tools-Software-The-4-Most-Crucial-Aspects.jpg"},
     { nombre: "Toys", descripcion: "lalalala" , hero: "http://visitbreckenridge.com/wp-content/uploads/2015/08/toys.jpg"},  
-] 
+];
