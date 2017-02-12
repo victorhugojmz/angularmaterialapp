@@ -8,10 +8,7 @@ import { Router} from '@angular/router';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
-  @Input() producto : Producto;
+  @Input() producto: Producto;
   constructor(private router: Router) { }
   ngOnInit() { }
-  public OnSelectedProduct(producto: Producto){
-      this.router.navigate(['/productos',producto.id]);
-  }
 }
