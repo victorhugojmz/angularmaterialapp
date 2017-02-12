@@ -9,8 +9,8 @@ import { FilterPipe } from '../filter.pipe';
   providers : [ ProductsService ],
 })
 export class ProductsComponent implements OnInit {
-  ListOfProducts: Producto[]
-  constructor(private _ProductsService : ProductsService) { }
+  ListOfProducts: Producto[];
+  constructor(private _ProductsService : ProductsService) {}
   ngOnInit() {
       this.getListOfProducts();
   }
