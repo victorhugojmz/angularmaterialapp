@@ -1,4 +1,16 @@
 <app-loader *ngIf="!ListOfProducts"></app-loader>
+<searchbox></searchbox>
 <div *ngIf="ListOfProducts" class="container">
-  <app-list-item *ngFor="let item of ListOfProducts" [producto]="item"></app-list-item>
+  <div *ngFor="let producto of ListOfProducts | filter:'k'">
+      <div class="col-md-4 col-sm-4 col-xs-6 col-lg-3">
+       <div class="thumbnail">
+        <img src="{{ producto.imagen }}" alt="{{ producto.detalles }}">
+          <div class="caption">
+            <h3>{{ producto.nombre }}</h3>
+            <h4>{{ producto.precio | currency: 'MXN':true }}</h4>
+            <h4>{{ producto.marca }}</h4>
+          </div>
+       </div> 
+      </div>
+  </div>
 </div>  

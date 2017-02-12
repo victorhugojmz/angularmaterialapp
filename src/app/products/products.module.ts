@@ -13,6 +13,8 @@ import { DetailsComponent } from './details/details.component';
 import { ContactComponent } from '../shared/contact/contact.component';
 import { AboutComponent } from '../shared/about.component';
 import { ParallaxComponent } from './parallax/parallax.component';
+import { FilterPipe } from './filter.pipe';
+import { SearchComponent } from './search/search.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,9 @@ import { ParallaxComponent } from './parallax/parallax.component';
     LoaderComponent,
     ContactComponent,
     AboutComponent,
-    ParallaxComponent
+    ParallaxComponent,
+    FilterPipe,
+    SearchComponent
 ],
   providers: [ ProductsService ]
 })
