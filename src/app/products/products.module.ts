@@ -10,11 +10,11 @@ import { DepartamentodetailsComponent } from './departamentodetails/departamento
 
 // Providers 
 import { ProductsService } from './products.service';
-import { DepartamentoComponent } from './departamento/departamento.component';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { ContactComponent } from '../shared/contact/contact.component';
 import { AboutComponent } from '../shared/about.component';
 import { ParallaxComponent } from './parallax/parallax.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -24,10 +24,10 @@ import { ParallaxComponent } from './parallax/parallax.component';
     ProductsRoutingModule
   ], 
   declarations: [
+    ProductsComponent,    
     ListItemComponent,
     DetailsComponent,
     DepartamentodetailsComponent,
-    DepartamentoComponent,
     LoaderComponent,
     ContactComponent,
     AboutComponent,
