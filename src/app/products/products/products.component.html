@@ -1,10 +1,11 @@
 <app-loader *ngIf="!ListOfProducts"></app-loader>
 <div *ngIf="ListOfProducts" class="container">
+  <app-parallax [departamento]="departamento"></app-parallax>
   <form class="form">
     <div class="form-group">
       <select  class="form-control" #departamento (change)="filterProductsPerDepartment(departamento.value)">
         <option value="">Seleciona un departamento</option>
-        <option  *ngFor="let departamento of departamentos" value="{{ departamento.nombre }}">{{ departamento.nombre }}</option>
+        <option (click)="d(departamento)" *ngFor="let departamento of departamentos" value="{{ departamento.nombre }}">{{ departamento.nombre }}</option>
      </select>
     </div>
   </form>

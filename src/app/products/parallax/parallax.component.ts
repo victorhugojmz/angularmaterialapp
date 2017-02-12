@@ -6,6 +6,7 @@ import { Departamento } from '../../products';
   styleUrls: ['./parallax.component.css']
 })
 export class ParallaxComponent implements OnInit {
+  @Input() departamento:  Departamento;
   constructor() {}
   ngOnInit() {  }
 }
