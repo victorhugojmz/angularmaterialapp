@@ -10,3 +10,6 @@ export class Departamento {
         this.imagenes =  _imagenes;
     }  
 }
+export const departamentos: Departamento[ ] = [
+    { nombre: "Smom", descripcion: "blakana" , hero: "snissins.jpg", imagenes: ["ddd", "sss", "ss"]}
+] 
