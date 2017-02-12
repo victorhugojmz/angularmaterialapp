@@ -8,5 +8,5 @@ import { Departamento } from '../../products';
 export class ParallaxComponent implements OnInit {
   @Input() departamento:  Departamento;
   constructor() {}
-  ngOnInit() {  }
+  ngOnInit() { }
 }

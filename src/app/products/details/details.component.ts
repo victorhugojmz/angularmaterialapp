@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router,ActivatedRoute,Params } from '@angular/router';
-import { Producto } from '../../products';
-import { ProductsService } from '../products.service';
+import { ProductsService, Producto } from '../../products';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css'],
-  providers: [ProductsService]
+  styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
   producto: Producto;
