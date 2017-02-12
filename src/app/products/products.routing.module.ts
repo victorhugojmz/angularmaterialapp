@@ -7,6 +7,7 @@ import { ContactComponent } from '../shared/contact/contact.component';
 import { AboutComponent } from '../shared/about.component';
 const productRoutes: Routes = [
   { path: 'productos', component:  ProductsComponent},
+  { path: 'productos/:id',component: DetailsComponent},
   { path: 'contacto', component:  ContactComponent}, 
   { path: 'about', component: AboutComponent}
 ];
