@@ -11,8 +11,8 @@
     </div>
     <div class="collapse navbar-collapse open" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-          <li  *ngFor="let link of links"  routerLinkActive="active">
-             <a routerLink="{{ link.route }}">{{ link.title }}</a>
+          <li  *ngFor="let navigation of navigationRoutes"  routerLinkActive="active">
+             <a routerLink="{{ navigation.route }}">{{ navigation.title }}</a>
           </li>
       </ul>
     </div>

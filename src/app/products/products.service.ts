@@ -17,12 +17,4 @@ export class ProductsService {
      return this.getProducts()
                 .map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }
-  public getDepartments( ){
-      return this._http.get(this._url)
-                       .map(response => response.json());
-  }
-  public getDept(nombre){ 
-     return this.getDepartments()
-                .map((departamentos: Departamento[]) => departamentos.find(depto => depto.nombre === nombre));
-  }
 }
