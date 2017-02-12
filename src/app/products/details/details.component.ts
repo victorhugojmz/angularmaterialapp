@@ -14,11 +14,11 @@ export class DetailsComponent implements OnInit {
   producto: Producto;
   constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
   ngOnInit() {
-    this.getProduct();
+    this.getProductFromRouteParams();
   }
-  getProduct( ){
+  public getProductFromRouteParams( ){
          this.route.params
-          .switchMap((params: Params) => this._ProductsService.getProduct(+params['id']))
+          .switchMap((params: Params) => this._ProductsService.getProductPerRoute(+params['id']))
           .subscribe(producto => this.producto = producto); 
   }
 }

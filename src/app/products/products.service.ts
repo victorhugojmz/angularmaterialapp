@@ -5,13 +5,12 @@ import { Producto , Departamento } from '../products';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductsService { 
- private url = "https://ngdevapi.firebaseio.com/Clothing.json";
+ private url = "https://ngdevapi.firebaseio.com/";
  constructor(private _http:  Http){ }
-  public getProducts(): Observable<Producto[]> {
-      return this._http.get(this.url)
-                       .map(response =>  response.json());
+  public getProducts(filter?): Observable<Producto[]> {
+    return  filter ? this._http.get(this.url +  filter + '.json' ).map(response =>  response.json()) : this._http.get('https://dtt-rest-api.firebaseio.com/.json').map(response =>  response.json());   
   }
-  public getProduct(id) : Observable<Producto>{ 
+  public getProductPerRoute(id: number) : Observable<Producto>{ 
      return this.getProducts()
                 .map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }

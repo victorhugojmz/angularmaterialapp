@@ -10,13 +10,16 @@ import { ProductsService } from '../products.service';
 export class ProductsComponent implements OnInit {
   ListOfProducts: Producto[];
   departamentos: Departamento[];
-  constructor(private _ProductsService : ProductsService) {}
+  constructor(private _ProductsService : ProductsService) { this.departamentos = departamentos;}
   ngOnInit() {
-      this.getListOfProducts();
-      this.departamentos = departamentos;
+    this.getListOfProducts();
   }
-  public getListOfProducts( ): void {
-          this._ProductsService.getProducts( )
+  public getListOfProducts(filter?: string): void {
+        this._ProductsService.getProducts(filter)
                                .subscribe(_listOfProducts => this.ListOfProducts = _listOfProducts);
+  }
+  public filterProductsPerDepartment(valueFromOptionSelected : string): void{
+        this.ListOfProducts = [];
+        this.getListOfProducts(valueFromOptionSelected);
   }
 }
