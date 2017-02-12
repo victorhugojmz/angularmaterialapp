@@ -12,6 +12,6 @@ export class ListItemComponent implements OnInit {
   constructor(private router: Router) { }
   ngOnInit() { }
   public OnSelectedProduct(producto: Producto){
-      this.router.navigate(['/productos'], producto.id);
+      this.router.navigate(['/productos', producto.id]);
   }
 }

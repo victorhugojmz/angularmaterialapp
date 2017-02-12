@@ -5,7 +5,7 @@ import { Producto , Departamento } from '../products';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductsService { 
- private url = "https://dtt-rest-api.firebaseio.com/.json";
+ private url = "https://ngdevapi.firebaseio.com/Clothing.json";
  constructor(private _http:  Http){ }
   public getProducts(): Observable<Producto[]> {
       return this._http.get(this.url)

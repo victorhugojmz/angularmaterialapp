@@ -25,9 +25,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a *ngFor="let espec of producto.especificaciones"  class="list-group-item">
-                                <strong><h5 class="list-group-item-heading">{{ espec.item }}</h5></strong>
-                                <p class="list-group-item-text"> {{ espec.item-descripcion }}</p>
+                            <a *ngFor="let espec of producto.specs"  class="list-group-item">
+                                <strong><h5 class="list-group-item-heading">{{ espec.nombre_spec }}</h5></strong>
+                                <p class="list-group-item-text"> {{ espec.detalles_spec }}</p>
                             </a>
                         </div>
                     </div>
