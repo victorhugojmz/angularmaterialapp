@@ -11,5 +11,6 @@ export class Departamento {
     }  
 }
 export const departamentos: Departamento[ ] = [
-    { nombre: "Smom", descripcion: "blakana" , hero: "snissins.jpg", imagenes: ["ddd", "sss", "ss"]}
+    { nombre: "Clothing", descripcion: "lalalala" , hero: "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", imagenes: ["https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff"]},
+    { nombre: "Sports", descripcion: "lalalala" , hero: "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", imagenes: ["https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff", "https://dummyimage.com/500x500.jpg/5fa2dd/ffffff"]},
 ] 
