@@ -7,6 +7,7 @@ import { Departamento } from '../../products';
 })
 export class ParallaxComponent implements OnInit {
   @Input('departamento-details') departamento:  Departamento;
+  color = "lightgreen";
   constructor() {}
   ngOnInit() { 
   }
