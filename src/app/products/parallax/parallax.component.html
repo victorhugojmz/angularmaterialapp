@@ -1,4 +1,4 @@
 <header [ngStyle]="{'background-image': 'url('+departamento.hero+')'}">
-  <h1>{{ departamento.nombre }}</h1>
+  <h1 highlightDirective [highlightColor]="yellow">{{ departamento.nombre }}</h1>
   <p>{{ departamento.descripcion }}</p>
 </header>
