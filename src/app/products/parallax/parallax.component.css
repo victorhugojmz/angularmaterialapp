@@ -8,7 +8,7 @@ header {
     display: flex;
     flex-direction:column;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
