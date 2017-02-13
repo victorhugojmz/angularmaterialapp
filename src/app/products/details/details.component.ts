@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit , OnDestroy {
   ngOnDestroy( ){  
     this.subscription.unsubscribe();
   }
-  private getProductFromRouteParams( ){
+  private getProductFromRouteParams( ): void{
     this.subscription =  this.route.params
                              .switchMap((params: Params) => this._ProductsService.getProductPerRoute(+params['id']))
                              .subscribe(producto => this.producto = producto); 
