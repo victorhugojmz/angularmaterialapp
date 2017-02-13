@@ -1,16 +1,18 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 @Directive({
-  selector: '[ngdropdown]'
+  selector: '[autoGrow]',
+  host: {
+    '(focus)': 'onFocus()',
+    '(blur)': 'onBlur()'
+  }
 })
 export class DropdownDirective {
-  @HostBinding('class.open') get opened(){
-    return this.isOpen;
+  _el : ElementRef; 
+  constructor(private el: ElementRef,private renderer :Renderer){}
+  onFocus(){
+    this.renderer.setElementStyle(this.el.nativeElement,'width','50000');
   }
-  @HostListener('click') open(){ 
-    this.isOpen = true;
+  onBlur(){
+     this.renderer.setElementStyle(this.el.nativeElement,'width','1200000');
   }
-  @HostListener('mouseover') close(){ 
-    this.isOpen = false;
-  } 
-   private isOpen = false;
 }

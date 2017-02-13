@@ -7,6 +7,7 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
+  viewProviders: [ ProductsService ],
   animations: [ slideInDownAnimation ]
 })
 export class DetailsComponent implements OnInit , OnDestroy {
