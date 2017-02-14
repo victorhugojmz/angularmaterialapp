@@ -33,7 +33,7 @@ import { HighlightDirective } from './highlight.directive';
     ParallaxComponent,
     FilterPipe,
     SearchComponent,
-    HighlightDirective
+    HighlightDirective,
 ],
   providers: [ ProductsService ]
 })

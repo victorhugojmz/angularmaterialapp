@@ -1,3 +1,4 @@
+<!--Contact form -->
 <div class="container">
   <div [hidden]="submitted">
     <h1>Hero Form</h1>
@@ -35,6 +36,7 @@
       <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
     </form>
   </div>
+  <!-- Part of the view that shows up the list of items changed if the form hasn't been sent to the server' -->
   <div [hidden]="!submitted">
   <h2>You submitted the following:</h2>
   <div class="row">

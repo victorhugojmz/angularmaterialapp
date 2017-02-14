@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   constructor(private _ProductsService : ProductsService) { }
   ngOnInit() {
     this.getListOfProducts();
+    this.getListOfDepartments();
   }
   public getListOfProducts(filterIfOptionSelected?: string): void {
         this._ProductsService.getProducts(filterIfOptionSelected)
