@@ -1,8 +1,5 @@
 import { Directive, ElementRef , Input , HostListener} from '@angular/core';
-
-@Directive({
-  selector: '[highlightDirective]'
-})
+@Directive({ selector: '[highlightDirective]' })
 export class HighlightDirective {
   @Input('highlightDirective') highlightColor: string;
   constructor(private _elementRef : ElementRef) { }
