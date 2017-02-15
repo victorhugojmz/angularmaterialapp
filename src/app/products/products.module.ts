@@ -16,6 +16,7 @@ import { ParallaxComponent } from './parallax/parallax.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
+import { ComplexFormComponent } from '../shared/complex-form/complex-form.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +33,8 @@ import { HighlightDirective } from './highlight.directive';
     ParallaxComponent,
     FilterPipe,
     SearchComponent,
-    HighlightDirective,
+    HighlightDirective,,
+    ComplexFormComponent
 ],
   providers: [ ProductsService ]
 })
