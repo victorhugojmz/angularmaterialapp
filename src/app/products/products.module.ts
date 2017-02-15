@@ -33,7 +33,7 @@ import { ComplexFormComponent } from '../shared/complex-form/complex-form.compon
     ParallaxComponent,
     FilterPipe,
     SearchComponent,
-    HighlightDirective,,
+    HighlightDirective,
     ComplexFormComponent
 ],
   providers: [ ProductsService ]
