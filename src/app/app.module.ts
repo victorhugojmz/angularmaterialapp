@@ -24,7 +24,7 @@ declarations: [
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     FormsModule,
     HttpModule,
     ProductsModule,
