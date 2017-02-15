@@ -16,7 +16,6 @@ import { ParallaxComponent } from './parallax/parallax.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
-
 @NgModule({
   imports: [
     CommonModule,
