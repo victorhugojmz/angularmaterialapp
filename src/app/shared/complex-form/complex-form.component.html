@@ -2,10 +2,49 @@
  <h1>Producto Form</h1>
  <form [formGroup]="heroForm" novalidate>
    <div class="from-group">
-     <label class="center-block">
-       Name
-       <input class="form-control" formControlName="name" type="">
-     </label>
+     <label class="center-block">Name:</label>
+       <input class="form-control" formControlName="name">
    </div>
+   <div formGroupName="address" class="well well-lg">
+        <div class="form-group">
+          <label class="center-block">Street:</label>
+            <input class="form-control" formControlName="street">
+        </div>
+        <div class="form-group">
+          <label class="center-block">City:</label>
+            <input class="form-control" formControlName="city">
+        </div>
+        <div class="form-group">
+          <label class="center-block">State:</label>
+            <select class="form-control" formControlName="state">
+              <option *ngFor="let state of states"  value="state">{{ state }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label class="center-block">Zip Code:</label>
+            <input class="form-control" formControlName="zip">
+        </div>
+   </div>
+   <div class="form-group">
+     <label class="center-block">Power:</label>
+       <input class="form-control" formControlName="power">
+   </div>
+   <div class="form-group">
+     <label class="center-block">Sidekick:</label>
+       <input class="form-control" formControlName="sidekick">
+   </div>
+   <div class="form-group">
+    <label>Super power:</label>
+      <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+      <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+      <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+  </div>
+  <div class="checkbox">
+    <label class="center-block">
+      <input type="checkbox" formControlName="sidekick">I have a sidekick.
+    </label>
+  </div>
  </form>
 </div>
+<p> {{ heroForm.value | json }}</p>
+<p>Status: {{ heroForm.status | json }}</p>

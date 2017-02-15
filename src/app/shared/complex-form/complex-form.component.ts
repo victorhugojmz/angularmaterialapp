@@ -1,16 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,  FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-complex-form',
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
 export class ComplexFormComponent implements OnInit {
-  heroForm = new FormGroup({
+  heroForm: FormGroup;
+  states = ['CA', 'MD', 'OH', 'VA'];
+ /* heroForm = new FormGroup({
     name: new FormControl()
-  });
-  constructor() { }
-
+  });*/
+  constructor(private _formBuilder: FormBuilder) {
+    this.createForm();
+  }
+  createForm( ){
+    this.heroForm = this._formBuilder.group({
+      name: ['', Validators.required],
+      address: this._formBuilder.group({
+          street: '', 
+          city: '',
+          state: '',
+          zip: '', 
+      }),
+      power: '', 
+      sidekick: ''
+    });  
+  }
   ngOnInit() {
   }
 
@@ -49,5 +65,4 @@ export const heroes: Hero[] = [
     addresses: [ ]
   },
 ];
-
-export const states = ['CA', 'MD', 'OH', 'VA'];
+const states = ['CA', 'MD', 'OH', 'VA'];
