@@ -1,9 +1,10 @@
 <div class="container">
  <h1>Producto Form</h1>
- <form>
+ <form [formGroup]="heroForm" novalidate>
    <div class="from-group">
      <label class="center-block">
-        <input class="form-control" [formControl]="name" type="">
+       Name
+       <input class="form-control" formControlName="name" type="">
      </label>
    </div>
  </form>

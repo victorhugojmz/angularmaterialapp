@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl,  FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-complex-form',
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
 export class ComplexFormComponent implements OnInit {
-  name = new FormControl();
-    
+  heroForm = new FormGroup({
+    name: new FormControl()
+  });
   constructor() { }
 
   ngOnInit() {
