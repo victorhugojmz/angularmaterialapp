@@ -1,20 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 @Component({
   selector: 'app-complex-form',
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
-export class ComplexFormComponent implements OnInit {
+export class ComplexFormComponent implements OnInit , OnChanges{
   heroForm: FormGroup;
+  hero: Hero;
   states = ['CA', 'MD', 'OH', 'VA'];
- /* heroForm = new FormGroup({
-    name: new FormControl()
-  });*/
   constructor(private _formBuilder: FormBuilder) {
     this.createForm();
   }
+  /*
+  Second Version------
   createForm( ){
+     this.heroForm = this._formBuilder.group({
+      name: ['', Validators.required],
+      address: this._formBuilder.group(new Address()),
+      power: ['', Validators.required], 
+      sidekick: ['', Validators.required]
+    });  
+   }
+   */
+ /* 
+ First Version
+ createForm( ){
     this.heroForm = this._formBuilder.group({
       name: ['', Validators.required],
       address: this._formBuilder.group({
@@ -23,13 +34,18 @@ export class ComplexFormComponent implements OnInit {
           state: '',
           zip: '', 
       }),
-      power: '', 
-      sidekick: ''
+      power: ['', Validators.required], 
+      sidekick: ['', Validators.required]
     });  
-  }
+  }*/
   ngOnInit() {
   }
-
+  ngOnChanges() {
+    this.heroForm.reset({
+      name:    this.hero.name,
+      address: this.hero.addresses[0] || new Address()
+    });
+  }
 }
 export class Hero {
   id = 0;
