@@ -5,35 +5,32 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
-export class ComplexFormComponent implements OnChanges {
+export class ComplexFormComponent implements OnChanges, OnInit {
   heroForm: FormGroup;
   hero: Hero;
   states = ['CA', 'MD', 'OH', 'VA'];
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder) { }
+  ngOnInit(){
     this.createForm();
   }
-  createForm(){
+  public createForm(){
         this.heroForm = this._formBuilder.group({
         name: ['', Validators.required],
-        secretLairs: this._formBuilder.array([]), 
+        secretLairs: this._formBuilder.array([], Validators.required), 
         power: ['',Validators.required],
         sidekick: ['', Validators.required]
     });
   }
-  setAddresses(addresses: Address[]) {
+  private setAddresses(addresses: Address[]) {
         const addressFGs = addresses.map(address => this._formBuilder.group(address));
         const addressFormArray = this._formBuilder.array(addressFGs);
         this.heroForm.setControl('secretLairs', addressFormArray);
    } 
-   get secretLairs(): FormArray {
-      return this.heroForm.get('secretLairs') as FormArray;
-  };
   public addLair(){
       this.secretLairs.push(this._formBuilder.group(new Address()));
   }
-  removeLair(address){
-      let index  =  this.secretLairs.controls.indexOf(address);
-      this.secretLairs.removeAt(index);
+  private removeLair(address){
+      this.secretLairs.removeAt(this.secretLairs.controls.indexOf(address));
   }
   ngOnChanges( ){
       this.heroForm.reset({
@@ -60,52 +57,18 @@ export class ComplexFormComponent implements OnChanges {
     };
     return saveHero;
   }
+  get secretLairs(): FormArray {
+      return this.heroForm.get('secretLairs') as FormArray;
+  };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 export class Hero {
   id = 0;
   name = '';
   addresses: Address[];
 }
-
 export class Address {
   street = '';
   city   = '';
   state  = '';
   zip    = '';
 }
-export const heroes: Hero[] = [
-  {
-    id: 1,
-    name: 'Whirlwind',
-    addresses: [
-      {street: '123 Main',  city: 'Anywhere', state: 'CA',  zip: '94801'},
-      {street: '456 Maple', city: 'Somewhere', state: 'VA', zip: '23226'},
-    ]
-  },
-  {
-    id: 2,
-    name: 'Bombastic',
-    addresses: [
-      {street: '789 Elm',  city: 'Smallville', state: 'OH',  zip: '04501'},
-    ]
-  },
-  {
-    id: 3,
-    name: 'Magneta',
-    addresses: [ ]
-  },
-];
-const states = ['CA', 'MD', 'OH', 'VA'];

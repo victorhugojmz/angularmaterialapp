@@ -5,7 +5,8 @@
      <label class="center-block">Name:</label>
        <input class="form-control" formControlName="name">
    </div>
-   <div  formArrayName="secretLairs" class="well well-lg">
+   <div formArrayName="secretLairs" class="well well-lg">
+     <label for="">Addresses</label>
      <div *ngFor="let address of secretLairs.controls; let i = index" [formGroupName]="i">
        <h4>Address #{{i + 1}}</h4>
         <div style="margin-left: 1em;">
