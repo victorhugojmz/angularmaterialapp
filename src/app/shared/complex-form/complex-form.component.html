@@ -1,6 +1,6 @@
 <div class="container">
  <h1>Producto Form</h1>
- <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" novalidate>
+ <form [formGroup]="heroForm" novalidate>
    <div class="form-group">
      <label class="center-block">Name:</label>
        <input class="form-control" formControlName="name">
@@ -60,7 +60,7 @@
   </div>
   <div style="margin-bottom: 1em">
       <button type="submit"
-              [disabled]="heroForm.pristine" class="btn btn-success">Save</button>
+              [disabled]="heroForm.pristine" (click)="onSubmit()"  class="btn btn-success">Save</button>
       <button type="reset" (click)="revert()"
               [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
   </div>

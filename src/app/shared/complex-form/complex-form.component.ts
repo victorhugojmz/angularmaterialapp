@@ -6,7 +6,7 @@ import { ProductsService} from '../../products/products.service';
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
-export class ComplexFormComponent implements OnChanges, OnInit {
+export class ComplexFormComponent implements  OnInit {
   heroForm: FormGroup;
   hero: Hero;
   states = ['CA', 'MD', 'OH', 'VA'];
@@ -33,26 +33,15 @@ export class ComplexFormComponent implements OnChanges, OnInit {
   private removeLair(address){
       this.secretLairs.removeAt(this.secretLairs.controls.indexOf(address));
   }
-  ngOnChanges( ){
-      this.heroForm.reset({
-          name: this.hero.name
-      });
-      this.setAddresses(this.hero.addresses);
-  }
   public onSubmit() {
-      this.hero = this.prepareSaveHero(); 
-      this._productsService.sendDataToServer(this.hero);
+    this._productsService.sendDataToServer(this.prepareSaveHero()).subscribe(data => console.log(data));
   }  
-  private revert() { 
-    this.ngOnChanges(); 
-  }
   private prepareSaveHero(): Hero  {
     const formModel = this.heroForm.value;
     const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
     (address: Address) => Object.assign({}, address)
     );
     const saveHero: Hero = {
-      id: this.hero.id,
       name: formModel.name as string,
       addresses: secretLairsDeepCopy
     };
@@ -63,7 +52,6 @@ export class ComplexFormComponent implements OnChanges, OnInit {
   };
 }
 export class Hero {
-  id = 0;
   name = '';
   addresses: Address[];
 }

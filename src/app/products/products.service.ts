@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Producto , Departamento ,departamentosQuerySet } from '../products';
 import 'rxjs/add/operator/map';
 @Injectable()
@@ -19,9 +19,9 @@ export class ProductsService {
     return departamentosQuerySet; 
   }
   public sendDataToServer(hero){ 
-        const body  = JSON.stringify(hero);
+        const body = JSON.stringify(hero);
         const headers = new Headers({ })
-        headers.append('Content Type', 'application/json');
-        this._http.post(this.api,body,{ headers: headers}).map(response => response.json());
+        headers.append('Content-Type', 'application/json');
+        return this._http.post("https://dtt-rest-api.firebaseio.com/.json",body,{ headers: headers}).map((data: Response) => data.json());
   }
 }
