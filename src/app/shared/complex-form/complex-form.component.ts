@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { ProductsService} from '../../products/products.service';
 @Component({
   selector: 'app-complex-form',
   templateUrl: './complex-form.component.html',
@@ -9,7 +10,7 @@ export class ComplexFormComponent implements OnChanges, OnInit {
   heroForm: FormGroup;
   hero: Hero;
   states = ['CA', 'MD', 'OH', 'VA'];
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _productsService : ProductsService, private _formBuilder: FormBuilder) { }
   ngOnInit(){
     this.createForm();
   }
@@ -40,7 +41,7 @@ export class ComplexFormComponent implements OnChanges, OnInit {
   }
   public onSubmit() {
       this.hero = this.prepareSaveHero(); 
-      console.log(this.hero);
+      this._productsService.sendDataToServer(this.hero);
   }  
   private revert() { 
     this.ngOnChanges(); 
