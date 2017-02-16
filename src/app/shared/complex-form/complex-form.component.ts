@@ -15,7 +15,7 @@ export class ComplexFormComponent implements OnChanges {
   createForm(){
         this.heroForm = this._formBuilder.group({
         name: ['', Validators.required],
-        secretLairs: this._formBuilder.array([]), // <-- secretLairs as an empty FormArray
+        secretLairs: this._formBuilder.array([]), 
         power: ['',Validators.required],
         sidekick: ['', Validators.required]
     });
@@ -32,9 +32,8 @@ export class ComplexFormComponent implements OnChanges {
       this.secretLairs.push(this._formBuilder.group(new Address()));
   }
   removeLair(address){
-      /*let index  =  this.secretLairs.controls.indexOf(address);
-      console.log(index);
-      this.secretLairs.controls.splice(index,1);*/
+      let index  =  this.secretLairs.controls.indexOf(address);
+      this.secretLairs.removeAt(index);
   }
   ngOnChanges( ){
       this.heroForm.reset({
@@ -44,7 +43,6 @@ export class ComplexFormComponent implements OnChanges {
   }
   public onSubmit() {
       this.hero = this.prepareSaveHero(); 
-      this.ngOnChanges();
       console.log(this.hero);
   }  
   private revert() { 
