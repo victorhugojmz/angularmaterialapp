@@ -5,48 +5,77 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
   templateUrl: './complex-form.component.html',
   styleUrls: ['./complex-form.component.css']
 })
-export class ComplexFormComponent implements OnInit , OnChanges{
+export class ComplexFormComponent implements OnChanges {
   heroForm: FormGroup;
   hero: Hero;
   states = ['CA', 'MD', 'OH', 'VA'];
   constructor(private _formBuilder: FormBuilder) {
     this.createForm();
   }
-  /*
-  Second Version------
-  createForm( ){
-     this.heroForm = this._formBuilder.group({
-      name: ['', Validators.required],
-      address: this._formBuilder.group(new Address()),
-      power: ['', Validators.required], 
-      sidekick: ['', Validators.required]
-    });  
-   }
-   */
- /* 
- First Version
- createForm( ){
-    this.heroForm = this._formBuilder.group({
-      name: ['', Validators.required],
-      address: this._formBuilder.group({
-          street: '', 
-          city: '',
-          state: '',
-          zip: '', 
-      }),
-      power: ['', Validators.required], 
-      sidekick: ['', Validators.required]
-    });  
-  }*/
-  ngOnInit() {
-  }
-  ngOnChanges() {
-    this.heroForm.reset({
-      name:    this.hero.name,
-      address: this.hero.addresses[0] || new Address()
+  createForm(){
+        this.heroForm = this._formBuilder.group({
+        name: ['', Validators.required],
+        secretLairs: this._formBuilder.array([]), // <-- secretLairs as an empty FormArray
+        power: ['',Validators.required],
+        sidekick: ['', Validators.required]
     });
   }
+  setAddresses(addresses: Address[]) {
+        const addressFGs = addresses.map(address => this._formBuilder.group(address));
+        const addressFormArray = this._formBuilder.array(addressFGs);
+        this.heroForm.setControl('secretLairs', addressFormArray);
+   } 
+   get secretLairs(): FormArray {
+      return this.heroForm.get('secretLairs') as FormArray;
+  };
+  public addLair(){
+      this.secretLairs.push(this._formBuilder.group(new Address()));
+  }
+  removeLair(address){
+      /*let index  =  this.secretLairs.controls.indexOf(address);
+      console.log(index);
+      this.secretLairs.controls.splice(index,1);*/
+  }
+  ngOnChanges( ){
+      this.heroForm.reset({
+          name: this.hero.name
+      });
+      this.setAddresses(this.hero.addresses);
+  }
+  public onSubmit() {
+      this.hero = this.prepareSaveHero(); 
+      this.ngOnChanges();
+      console.log(this.hero);
+  }  
+  private revert() { 
+    this.ngOnChanges(); 
+  }
+  private prepareSaveHero(): Hero  {
+    const formModel = this.heroForm.value;
+    const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
+    (address: Address) => Object.assign({}, address)
+    );
+    const saveHero: Hero = {
+      id: this.hero.id,
+      name: formModel.name as string,
+      addresses: secretLairsDeepCopy
+    };
+    return saveHero;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 export class Hero {
   id = 0;
   name = '';

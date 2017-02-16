@@ -1,29 +1,42 @@
 <div class="container">
  <h1>Producto Form</h1>
- <form [formGroup]="heroForm" novalidate>
+ <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" novalidate>
    <div class="form-group">
      <label class="center-block">Name:</label>
        <input class="form-control" formControlName="name">
    </div>
-   <div formGroupName="address" class="well well-lg">
-        <div class="form-group">
-          <label class="center-block">Street:</label>
-            <input class="form-control" formControlName="street">
+   <div  formArrayName="secretLairs" class="well well-lg">
+     <div *ngFor="let address of secretLairs.controls; let i = index" [formGroupName]="i">
+       <h4>Address #{{i + 1}}</h4>
+        <div style="margin-left: 1em;">
+          <div class="form-group">
+            <label class="center-block">Street:
+              <input class="form-control" formControlName="street">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">City:
+              <input class="form-control" formControlName="city">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">State:
+              <select class="form-control" formControlName="state">
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">Zip Code:
+              <input class="form-control" formControlName="zip">
+            </label>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="center-block">City:</label>
-            <input class="form-control" formControlName="city">
+        <br>
+        <div class="form-control">
+          <button type="button" (click)="removeLair(address)">Eliminar Direccion</button>
         </div>
-        <div class="form-group">
-          <label class="center-block">State:</label>
-            <select class="form-control" formControlName="state">
-              <option *ngFor="let state of states"  [value]="state">{{ state }}</option>
-            </select>
-        </div>
-        <div class="form-group">
-          <label class="center-block">Zip Code:</label>
-            <input class="form-control" formControlName="zip">
-        </div>
+     </div>
    </div>
    <div class="form-group">
      <label class="center-block">Power:</label>
@@ -44,9 +57,13 @@
       <input type="checkbox" formControlName="sidekick">I have a sidekick.
     </label>
   </div>
+  <div style="margin-bottom: 1em">
+      <button type="submit"
+              [disabled]="heroForm.pristine" class="btn btn-success">Save</button>
+      <button type="reset" (click)="revert()"
+              [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
+  </div>
+    <button (click)="addLair()" type="button">Add a Secret Lair</button>
  </form>
 </div>
-<p> {{ heroForm.value | json }}</p>
-<p>Name value: {{ heroForm.get('name').value }}</p>
-<p>Status: {{ heroForm.status | json }}</p>
-<p>Street value: {{ heroForm.get('address.street').value}}</p>
+{{ heroForm.value | json }}
