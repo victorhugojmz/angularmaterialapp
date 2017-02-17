@@ -80,8 +80,7 @@ export class NewProductComponent implements OnInit {
       return this.productoForm.get('specs') as FormArray;
   }
   private onSubmit(){
-     this._productService.sendDataToServer(this.prepareProductToPost())
-                         .subscribe(data => console.log(data));
+     this._productService.sendDataToServer(this.prepareProductToPost()).subscribe(data => console.log(data));
   }
   ngOnInit() {
     this.createForm();

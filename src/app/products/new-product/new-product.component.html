@@ -92,7 +92,7 @@
       <label class="center-block">Detalles:</label>
       <textarea rows="7" class="form-control" formControlName="detalles"></textarea>
     </div>
-    <button class="btn btn-success" type="submit" ngClass="{invalid:!productoForm.valid}" [disabled]="!productoForm.valid">Agregar Producto</button>
+    <button class="btn btn-success" type="submit" [disabled]="!productoForm.valid">Agregar Producto</button>
   </form>
 </div>
 {{ productoForm.value | json }}
