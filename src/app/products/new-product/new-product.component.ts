@@ -28,24 +28,34 @@ export class NewProductComponent implements OnInit {
   }
   private prepareProductToPost( ):  Producto{
      const formModel = this.productoForm.value;
+     const imagenesDeepCopy : Imagen[] = formModel.imagenes.map(
+       (imagen:  Imagen) => Object.assign({},imagen)
+     );
      const productoModel: Producto = {
-          sku: formModel.sku,
-          stock: formModel.stock,
-          nombre: formModel.nombre,
-          precio: formModel.precio,
-          departamento: formModel.departamento, 
-          descuento : formModel.descuento,
-          detalles: formModel.detalles,
-          imagen: formModel.imagen,
+          sku: formModel.sku as string,
+          stock: formModel.stock as number, 
+          nombre: formModel.nombre as string,
+          precio: formModel.precio as number,
+          departamento: formModel.departamento as string, 
+          descuento : formModel.descuento as number,
+          detalles: formModel.detalles as string,
+          imagen: formModel.imagen as string,
+          imagenes: imagenesDeepCopy,
           marca: formModel.marca
      };
      return productoModel;
   }
   private setImagenes(imagenes: Imagen[]){
      const  imagenesFormArray =  this._formBuilder.array(
-               imagenes.map(imagen => this._formBuilder.group(imagen))
+                 imagenes.map(imagen => this._formBuilder.group(imagen))
      );
      this.productoForm.setControl('imagenes', imagenesFormArray);
+  }
+  private addNewImagenToArray(){
+    this.imagenes.push(this._formBuilder.group(new Imagen('','','')));
+  }
+  private removeImagenSelectedFromArray(imagen){
+      this.imagenes.removeAt(this.imagenes.controls.indexOf(imagen));
   }
   get imagenes(): FormArray {
       return this.productoForm.get('imagenes') as FormArray;
