@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { DetailsComponent }  from './details/details.component';
 import { AboutComponent } from '../shared/about.component';
-import { ContactComponent } from '../shared/contact/contact.component';
-
+import { ContactComponent } from '../shared/contact/contact.component'
 const productRoutes: Routes = [
   { path: 'productos', component:  ProductsComponent},
   { path: 'productos/:departamento/:id',component: DetailsComponent},
