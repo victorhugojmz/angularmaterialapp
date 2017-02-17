@@ -14,3 +14,4 @@ export const departamentosQuerySet: Departamento[ ] = [
     { nombre: "Tools", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet, magna in aliquam volutpat, felis purus suscipit urna, rutrum gravida diam felis ut enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque." , hero: "https://www.clearpointstrategy.com/wp-content/uploads/2015/03/Reporting-Tools-Software-The-4-Most-Crucial-Aspects.jpg"},
     { nombre: "Toys", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet, magna in aliquam volutpat, felis purus suscipit urna, rutrum gravida diam felis ut enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque." , hero: "http://visitbreckenridge.com/wp-content/uploads/2015/08/toys.jpg"},  
 ];
+export const departamentosList = departamentosQuerySet.map(departamento => departamento.nombre);

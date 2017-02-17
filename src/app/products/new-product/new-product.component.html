@@ -1,6 +1,42 @@
 <div class="container">
   <h1>Crear un nuevo producto</h1>
-  <form>
-    
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()" novalidate>
+     <div class="form-group">
+      <label class="center-block">SKU:</label>
+      <input class="form-control" type="text" formControlName="sku">
+    </div>
+    <div class="form-group">
+      <label class="center-block">Stock:</label>
+      <input class="form-control" type="text" formControlName="stock">
+    </div>
+    <div class="form-group">
+      <label class="center-block">Nombre:</label>
+      <input class="form-control" type="text" formControlName="nombre">
+    </div>
+    <div class="form-group">
+      <label class="center-block">Precio:</label>
+      <input class="form-control" type="text" formControlName="precio">
+    </div>
+    <div class="form-group">
+      <label class="center-block">Departamento:</label>
+      <select class="form-control" formControlName="departamento">
+        <option>Selecciona un departamento</option>
+        <option *ngFor="let departamento of departamentos" [value]="departamento">{{ departamento }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Descuento:</label>
+      <input class="form-control" type="text" formControlName="descuento">
+    </div>
+    <div class="form-group">
+      <label class="center-block">Detalles:</label>
+      <textarea rows="4" cols="150" formControlName="detalles"></textarea>
+    </div>
+     <div class="form-group">
+      <label class="center-block">Imagen:</label>
+      <input class="form-control" type="text" formControlName="imagen">
+    </div>
+    <button class="btn btn-success" type="submit">Agregar Producto</button>
   </form>
 </div>
+{{ productoForm.value | json }}
