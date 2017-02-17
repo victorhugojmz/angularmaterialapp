@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
-import { FormGroup, FormBuilder,FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -14,12 +14,12 @@ export class NewProductComponent implements OnInit {
    }
   public createForm ( ) { 
         this.productoForm = this._formBuilder.group({
-          sku: ['', Validators.required], 
+          sku: ['', Validators.required, Validators.minLength(15),Validators.maxLength(27)], 
           stock: ['', Validators.required],
           nombre: ['', Validators.required],
           precio: ['', Validators.required],
           departamento: ['', Validators.required],
-          descuento: [''],
+          descuento: ['', Validators.required],
           detalles: [''],
           imagen: ['', Validators.required], 
           imagenes : this._formBuilder.array([],Validators.required),
@@ -32,6 +32,9 @@ export class NewProductComponent implements OnInit {
      const imagenesDeepCopy : Imagen[] = formModel.imagenes.map(
        (imagen:  Imagen) => Object.assign({},imagen)
      );
+     const specsDeepCopy:  Spec[] = formModel.specs.map(
+       (spec: Spec)=> Object.assign({},spec)
+      );
      const productoModel: Producto = {
           sku: formModel.sku as string,
           stock: formModel.stock as number, 
@@ -42,31 +45,32 @@ export class NewProductComponent implements OnInit {
           detalles: formModel.detalles as string,
           imagen: formModel.imagen as string,
           imagenes: imagenesDeepCopy,
-          marca: formModel.marca as string
+          marca: formModel.marca as string,
+          specs:  specsDeepCopy,
      };
      return productoModel;
   }
-  private setImagenes(imagenes: Imagen[]){
+  private setImagenes(imagenes: Imagen[]): void {
      const  imagenesFormArray =  this._formBuilder.array(
                  imagenes.map(imagen => this._formBuilder.group(imagen))
      );
      this.productoForm.setControl('imagenes', imagenesFormArray);
   }
-  private setItemSpecs(specs: Spec[]){
+  private setItemSpecs(specs: Spec[]):void {
       const specsFormArray = this._formBuilder.array(
                  specs.map((spec: Spec)=> this._formBuilder.group(spec))
       );  
   }
-  private addNewImagenToArray(){
-    this.imagenes.push(this._formBuilder.group(new Imagen('','','')));
+  private addNewImagenToArray():void {
+    this.imagenes.push(this._formBuilder.group(new Imagen()));
   }
-  private addSpecToFormArray(){
-    this.specs.push(this._formBuilder.group(new Spec('','')));
+  private addSpecToFormArray(): void {
+    this.specs.push(this._formBuilder.group(new Spec()));
   }
-  private removeImagenSelectedFromArray(imagen){
+  private removeImagenSelectedFromArray(imagen: FormControl): void{
       this.imagenes.removeAt(this.imagenes.controls.indexOf(imagen));
   }
-  private rmSpecSelectedFromArray(spec){
+  private rmSpecSelectedFromArray(spec: FormControl): void {
       this.specs.removeAt(this.specs.controls.indexOf(spec));
   }  
   get imagenes(): FormArray {

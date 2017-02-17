@@ -27,20 +27,11 @@ export class Producto {
     }
  }
  export class Imagen { 
-     url: string;
-     descripcion: string;
-     titulo: string;
-     constructor(public _url: string,public _descripcion: string ,public _titulo: string){
-         this.url = _url;
-         this.titulo = _titulo;
-         this.descripcion = _descripcion;
-     } 
+     url: string = '';
+     descripcion: string = '';
+     titulo: string = '';
 }
 export class Spec{
-    nombre: string;
-    descripcion: string;
-    constructor(public _nombrespec: string, public _descripcionspec: string){
-        this.nombre = _nombrespec;
-        this.descripcion = _descripcionspec;
-    }
+    nombre: string = '';
+    descripcion: string = '';
 }

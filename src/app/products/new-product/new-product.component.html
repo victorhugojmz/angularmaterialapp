@@ -42,8 +42,8 @@
     <h4>Imagenes</h4>
     <h5>Crear galeria de imagenes:</h5>
     <div formArrayName="imagenes" class="well well-lg">
-      <div *ngFor="let imagen  of imagenes.controls; let i = index" [formGroupName]="i">
-        <div style="margin-left:1em; margin-bottom: 2em;">
+      <div style="margin-bottom: 1em;" *ngFor="let imagen  of imagenes.controls; let i = index" [formGroupName]="i">
+        <div style="margin-left:1em;">
           <div class="form-group">
             <label class="center-block">Url de la imagen {{ i+ 1 }}:
               <input class="form-control" formControlName="url">
@@ -60,14 +60,14 @@
             </label>
          </div>
         </div>
-      <button  *ngIf="imagen"  type="button" class="btn btn-danger" (click)="removeImagenSelectedFromArray(imagen)">Remover</button> 
+      <button  *ngIf="imagen"  type="button" class="btn btn-danger pull" (click)="removeImagenSelectedFromArray(imagen)">Remover</button> 
       </div>
     <button type="button" class="btn btn-info" (click)="addNewImagenToArray()">Nueva imagen</button>         
     </div>
     <h4>Especificiaciones</h4>
     <h5>Crear lista de especificaciones:</h5>
     <div formArrayName="specs" class="well well-lg">
-      <div *ngFor="let spec of specs.controls; let i = index" [formGroupName]="i">
+      <div  style="margin-bottom: 1em;" *ngFor="let spec of specs.controls; let i = index" [formGroupName]="i">
         <div style="margin-left:1em;">
           <div class="form-group">
             <label class="center-block">Nombre especificacion #{{ i+ 1 }}:
@@ -80,7 +80,7 @@
             </label>
          </div>
         </div>
-      <button  *ngIf="spec"  type="button" class="btn btn-danger" (click)="rmSpecSelectedFromArray(spec)">Remover</button> 
+      <button  *ngIf="spec"  type="button" class="btn btn-danger pull" (click)="rmSpecSelectedFromArray(spec)">Remover</button> 
       </div>
       <button type="button" class="btn btn-info" (click)="addSpecToFormArray()">Nueva especificacion</button>         
     </div>
