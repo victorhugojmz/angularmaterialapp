@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from '../../products';
 import { Router} from '@angular/router';
-
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',

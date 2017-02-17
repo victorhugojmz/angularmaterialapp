@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService ,Producto, departamentosQuerySet ,Departamento } from '../../products';
+import { ProductsService , Producto , departamentosQuerySet ,Departamento } from '../../products';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   public filterProductsPerDepartment(valueFromOptionSelected : string): void{
         this.setDepartmentTorenderView(valueFromOptionSelected);
         this.getListOfProducts(valueFromOptionSelected);
+        console.log(valueFromOptionSelected);
   }
    public setDepartmentTorenderView(deparmentNameToSet: string): void {
         this.departamento =  departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);
