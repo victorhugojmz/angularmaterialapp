@@ -15,7 +15,11 @@
     </div>
     <div class="form-group">
       <label class="center-block">Precio:</label>
-      <input class="form-control" type="text" formControlName="precio">
+      <div class="input-group">
+         <span class="input-group-addon">$</span>
+         <input class="form-control" type="text" formControlName="precio">
+         <span class="input-group-addon">.00</span>
+      </div>
     </div>
     <div class="form-group">
       <label class="center-block">Departamento:</label>
@@ -26,11 +30,10 @@
     </div>
     <div class="form-group">
       <label class="center-block">Descuento:</label>
-      <input class="form-control" type="text" formControlName="descuento">
-    </div>
-    <div class="form-group">
-      <label class="center-block">Detalles:</label>
-      <textarea rows="4" cols="150" formControlName="detalles"></textarea>
+      <div class="input-group">
+         <span class="input-group-addon">%</span>
+          <input class="form-control" type="text" formControlName="descuento">
+      </div>
     </div>
      <div class="form-group">
       <label class="center-block">Imagen:</label>
@@ -40,7 +43,7 @@
     <h5>Crear galeria de imagenes:</h5>
     <div formArrayName="imagenes" class="well well-lg">
       <div *ngFor="let imagen  of imagenes.controls; let i = index" [formGroupName]="i">
-        <div style="margin-left:1em;">
+        <div style="margin-left:1em; margin-bottom: 2em;">
           <div class="form-group">
             <label class="center-block">Url de la imagen {{ i+ 1 }}:
               <input class="form-control" formControlName="url">
@@ -57,9 +60,33 @@
             </label>
          </div>
         </div>
-      <button  *ngIf="imagen"  type="button" class="btn btn-danger" (click)="removeImagenSelectedFromArray(imagen)">Remover imagen</button> 
+      <button  *ngIf="imagen"  type="button" class="btn btn-danger" (click)="removeImagenSelectedFromArray(imagen)">Remover</button> 
       </div>
-    <button type="button" class="btn btn-info" (click)="addNewImagenToArray()">Añadir imagen</button>         
+    <button type="button" class="btn btn-info" (click)="addNewImagenToArray()">Nueva imagen</button>         
+    </div>
+    <h4>Especificiaciones</h4>
+    <h5>Crear lista de especificaciones:</h5>
+    <div formArrayName="specs" class="well well-lg">
+      <div *ngFor="let spec of specs.controls; let i = index" [formGroupName]="i">
+        <div style="margin-left:1em;">
+          <div class="form-group">
+            <label class="center-block">Nombre especificacion #{{ i+ 1 }}:
+              <input class="form-control" formControlName="nombre">
+            </label>
+          </div>
+         <div class="form-group">
+            <label class="center-block">Descripcion especificacion:
+              <textarea rows="4" class="form-control" formControlName="descripcion"></textarea>
+            </label>
+         </div>
+        </div>
+      <button  *ngIf="spec"  type="button" class="btn btn-danger" (click)="rmSpecSelectedFromArray(spec)">Remover</button> 
+      </div>
+      <button type="button" class="btn btn-info" (click)="addSpecToFormArray()">Nueva especificacion</button>         
+    </div>
+    <div class="form-group">
+      <label class="center-block">Detalles:</label>
+      <textarea rows="7" class="form-control" formControlName="detalles"></textarea>
     </div>
     <button class="btn btn-success" type="submit">Agregar Producto</button>
   </form>

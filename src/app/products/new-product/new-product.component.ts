@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto, Imagen, ProductsService, departamentosList} from '../../products';
+import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators } from '@angular/forms';
 @Component({
   selector: 'app-new-product',
@@ -23,7 +23,8 @@ export class NewProductComponent implements OnInit {
           detalles: [''],
           imagen: ['', Validators.required], 
           imagenes : this._formBuilder.array([],Validators.required),
-          marca: ['']
+          marca: ['', Validators.required],
+          specs: this._formBuilder.array([], Validators.required)
         });
   }
   private prepareProductToPost( ):  Producto{
@@ -41,7 +42,7 @@ export class NewProductComponent implements OnInit {
           detalles: formModel.detalles as string,
           imagen: formModel.imagen as string,
           imagenes: imagenesDeepCopy,
-          marca: formModel.marca
+          marca: formModel.marca as string
      };
      return productoModel;
   }
@@ -51,16 +52,30 @@ export class NewProductComponent implements OnInit {
      );
      this.productoForm.setControl('imagenes', imagenesFormArray);
   }
+  private setItemSpecs(specs: Spec[]){
+      const specsFormArray = this._formBuilder.array(
+                 specs.map((spec: Spec)=> this._formBuilder.group(spec))
+      );  
+  }
   private addNewImagenToArray(){
     this.imagenes.push(this._formBuilder.group(new Imagen('','','')));
+  }
+  private addSpecToFormArray(){
+    this.specs.push(this._formBuilder.group(new Spec('','')));
   }
   private removeImagenSelectedFromArray(imagen){
       this.imagenes.removeAt(this.imagenes.controls.indexOf(imagen));
   }
+  private rmSpecSelectedFromArray(spec){
+      this.specs.removeAt(this.specs.controls.indexOf(spec));
+  }  
   get imagenes(): FormArray {
       return this.productoForm.get('imagenes') as FormArray;
   };
-  onSubmit(){
+  get specs( ): FormArray {
+      return this.productoForm.get('specs') as FormArray;
+  }
+  private onSubmit(){
      this._productService.sendDataToServer(this.prepareProductToPost())
                          .subscribe(data => console.log(data));
   }
