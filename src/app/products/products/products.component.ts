@@ -3,7 +3,8 @@ import { ProductsService , Producto , departamentosQuerySet ,Departamento } fro
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  viewProviders: [ProductsService]
 })
 export class ProductsComponent implements OnInit {
   public ListOfProducts: Producto[];
@@ -12,7 +13,9 @@ export class ProductsComponent implements OnInit {
   constructor(private _ProductsService : ProductsService) { }
   ngOnInit() {
     this.getListOfProducts();
-    this.getListOfDepartments();
+     this.departamentos = departamentosQuerySet;
+     console.log(this.departamentos);
+      console.log(this.ListOfProducts);
   }
   public getListOfProducts(filterIfOptionSelected?: string): void {
         this._ProductsService.getProducts(filterIfOptionSelected)
@@ -24,9 +27,6 @@ export class ProductsComponent implements OnInit {
         console.log(valueFromOptionSelected);
   }
    public setDepartmentTorenderView(deparmentNameToSet: string): void {
-        this.departamento =  departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);
-  }
-  public getListOfDepartments( ){
-        this.departamentos =  this._ProductsService.getListOfDepartments();
+        this.departamento = departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);
   }
 }
