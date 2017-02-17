@@ -12,7 +12,7 @@ export class NewProductComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
    }
-  public createForm ( ) { 
+  public createForm ( ): void  { 
         this.productoForm = this._formBuilder.group({
           sku: ['', Validators.required, Validators.minLength(15),Validators.maxLength(27)], 
           stock: ['', Validators.required],

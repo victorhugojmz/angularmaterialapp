@@ -39,6 +39,10 @@
       <label class="center-block">Imagen:</label>
       <input class="form-control" type="text" formControlName="imagen">
     </div>
+     <div class="form-group">
+      <label class="center-block">Marca:</label>
+      <input class="form-control" type="text" formControlName="marca">
+    </div>
     <h4>Imagenes</h4>
     <h5>Crear galeria de imagenes:</h5>
     <div formArrayName="imagenes" class="well well-lg">
@@ -88,7 +92,7 @@
       <label class="center-block">Detalles:</label>
       <textarea rows="7" class="form-control" formControlName="detalles"></textarea>
     </div>
-    <button class="btn btn-success" type="submit">Agregar Producto</button>
+    <button class="btn btn-success" type="submit" ngClass="{invalid:!productoForm.valid}" [disabled]="!productoForm.valid">Agregar Producto</button>
   </form>
 </div>
 {{ productoForm.value | json }}
