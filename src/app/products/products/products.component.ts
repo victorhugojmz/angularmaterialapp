@@ -15,14 +15,13 @@ export class ProductsComponent implements OnInit {
     this.getListOfProducts();
     this.departamentos = departamentosQuerySet;
   }
-  public getListOfProducts(filter?): void {
-        this._ProductsService.getProducts(filter)
+  public getListOfProducts(): void {
+        this._ProductsService.getProducts()
                               .subscribe(_listOfProducts => this.ListOfProducts = _listOfProducts);
   }
   public filterProductsPerDepartment(valueFromOptionSelected : string): void {
         this.ListOfProducts = null;
         this.setDepartmentTorenderView(valueFromOptionSelected);
-        this.getListOfProducts(valueFromOptionSelected);
   }
    public setDepartmentTorenderView(deparmentNameToSet: string): void {
         this.departamento = departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);

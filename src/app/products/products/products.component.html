@@ -11,4 +11,5 @@
   </form>
   <searchbox (update) = "term = $event"></searchbox>
   <app-list-item *ngFor="let producto of ListOfProducts | filter:term" [producto]="producto"></app-list-item>
+  {{ ListOfProducts | json }}
 </div>

@@ -20,21 +20,22 @@
             </div>
             <br>
             <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h5> <br>
-                        <p>{{ producto.descripcion }}</p>
-                    </div>
-                    <div class="panel-body">
-                        <br>
-                        <div class="list-group">
-                            <a *ngFor="let espec of producto.specs"  class="list-group-item">
-                                <strong><h6 class="list-group-item-heading">{{ espec.nombre_spec }}</h6></strong>
-                                <p class="list-group-item-text"> {{ espec.detalles_spec }}</p>
-                            </a>
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Detalles del producto: <strong>{{ producto.nombre }}</strong></h5> <br>
+                                <p>{{ producto.descripcion }}</p>
+                            </div>
+                            <div class="panel-body">
+                                <br>
+                                <div class="list-group">
+                                    <a *ngFor="let spec of producto.specs"  class="list-group-item">
+                                        <h6 class="list-group-item-heading">{{ spec.nombre }}</h6>
+                                        <p class="list-group-item-text"> {{ spec.descripcion}}</p>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div>
-            </div>
         </div>
 </div>
