@@ -10,5 +10,6 @@ export class ParallaxComponent implements OnInit {
   color = "lightgreen";
   constructor() {}
   ngOnInit() { 
+    this.departamento.hero = " "
   }
 }
