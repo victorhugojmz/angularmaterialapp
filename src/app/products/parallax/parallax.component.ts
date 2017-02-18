@@ -10,6 +10,7 @@ export class ParallaxComponent implements OnInit {
   color = "lightgreen";
   constructor() {}
   ngOnInit() { 
-    this.departamento.hero = " "
+    this.departamento.hero = "http://winarticles.net/wp-content/uploads/2014/03/baby-grey-colored-eyes.jpg"
+    this.departamento.descripcion =" blah blah blah";
   }
 }

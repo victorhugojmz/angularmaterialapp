@@ -15,7 +15,6 @@ import { ParallaxComponent } from './parallax/parallax.component';
 import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
-import { ComplexFormComponent } from '../shared/complex-form/complex-form.component';
 import { NewProductComponent } from './new-product/new-product.component';
 @NgModule({
   imports: [
@@ -35,7 +34,6 @@ import { NewProductComponent } from './new-product/new-product.component';
     FilterPipe,
     SearchComponent,
     HighlightDirective,
-    ComplexFormComponent,
     NewProductComponent
 ],
   providers: [ ProductsService ]
