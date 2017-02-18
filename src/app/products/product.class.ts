@@ -2,15 +2,16 @@ export class Producto {
     id?: number;
     sku?: string;
     stock?: number;
+    size? : string;
     nombre?: string;
     precio?: number;
-    departamento?:  string;
+    departamento?: string;
     descuento?: number;
-    detalles?: string;
+    descripcion?: string;
     imagen?: string;
     imagenes: Imagen[];
     marca?: string;
-    specs?:  Spec[ ];
+    specs?: Spec[ ];
     constructor(public _id ?: number, public _sku?:  string, public _stock?: number, public _nombre?: string, public _precio?: number, public _departamento?: string, public _descuento?: number, public _detalles?: string,public _imagen?: string, public _marca?:  string, public _imagenes?: Imagen[], public _specs?: Spec[]){ 
         this.id = _id;
         this.sku = _sku;
