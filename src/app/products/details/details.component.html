@@ -1,6 +1,7 @@
 <app-loader *ngIf="!producto"></app-loader>
 <div class="container">
     <div *ngIf="producto">
+        <div class="btn btn-danger" (click)="del(producto)">ALV</div>
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
                         <img class="img img-responsive" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">

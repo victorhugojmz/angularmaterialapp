@@ -1,6 +1,7 @@
 <app-parallax *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
 <app-loader *ngIf="!ListOfProducts"></app-loader>
 <div *ngIf="ListOfProducts" class="container">
+   {{ lol | json }}
   <form class="form">
     <div class="form-group">
       <select  class="form-control" #departamento (change)="filterProductsPerDepartment(departamento.value)">
@@ -10,5 +11,5 @@
     </div>
   </form>
   <searchbox (update) = "term = $event"></searchbox>
-  <app-list-item *ngFor="let producto of ListOfProducts | filter:term" [producto]="producto"></app-list-item>
+  <app-list-item (delete)="lol = $event" *ngFor="let producto of ListOfProducts | filter:term" [producto]="producto"></app-list-item>
 </div>

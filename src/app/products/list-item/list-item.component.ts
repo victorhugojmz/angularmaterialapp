@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit , Output, EventEmitter} from '@angular/core';
 import { Producto } from '../../products';
 import { Router} from '@angular/router';
 @Component({
@@ -8,9 +8,12 @@ import { Router} from '@angular/router';
 })
 export class ListItemComponent implements OnInit {
   @Input() producto: Producto;
+  @Output() delete = new EventEmitter();
   constructor(private router: Router) { }
-  ngOnInit() { }
+  ngOnInit() { 
+    this.delete.emit(null);
+  }
   public OnSelectedProduct(producto: Producto){
       this.router.navigate(['/productos'+ '/' + producto.departamento + '/', producto.id]);
-  }
+  }  
 }
