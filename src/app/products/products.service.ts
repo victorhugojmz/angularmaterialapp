@@ -19,9 +19,12 @@ export class ProductsService {
         const body = JSON.stringify(hero);
         const headers = new Headers({ });
         headers.append('Content-Type', 'application/json');
-        return this._http.post(this.url+'.json',body,{ headers: headers}).map((data: Response) => data.json());
+        return this._http.post(this.l+ 'productos/' + '.json',body,{ headers: headers}).map((data: Response) => data.json());
   } 
   public dl(producto : Producto){
-    return this._http.delete(this.l + producto.departamento + '/' + (producto.id-1) + '.json');
+    return this._http.delete(this.url + producto.departamento + '/' + (producto.id-1) + '.json').map((data: Response) => data.json());
+  }
+  public load(){ 
+    return this._http.get(this.l+ 'productos' + '/.json').map(response => response.json());
   }
 }

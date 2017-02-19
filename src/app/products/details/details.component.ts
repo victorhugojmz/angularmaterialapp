@@ -27,9 +27,4 @@ export class DetailsComponent implements OnInit , OnDestroy {
                              .switchMap((params: Params) => this._ProductsService.getProductPerRoute(params['departamento'],+params['id']))
                              .subscribe((producto: Producto) => this.producto = producto); 
   }
-  del(producto: Producto){ 
-    this._ProductsService.dl(producto).subscribe(message => console.log(message));
-    this.router.navigate(['/productos']);
-    this.ngOnDestroy;
-  }
 }
