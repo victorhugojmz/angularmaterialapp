@@ -14,12 +14,12 @@ export class NewProductComponent implements OnInit {
    }
   public createForm ( ): void  { 
         this.productoForm = this._formBuilder.group({
-          sku: ['', Validators.required, Validators.minLength(15),Validators.maxLength(27)], 
+          sku: ['', Validators.required], 
           stock: ['', Validators.required],
           nombre: ['', Validators.required],
           precio: ['', Validators.required],
           departamento: ['', Validators.required],
-          descuento: ['', Validators.required],
+          descuento: [''],
           descripcion: [''],
           imagen: ['', Validators.required], 
           imagenes : this._formBuilder.array([],Validators.required),

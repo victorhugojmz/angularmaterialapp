@@ -3,21 +3,21 @@
   <form [formGroup]="productoForm" (ngSubmit)="onSubmit()" novalidate>
      <div class="form-group">
       <label class="center-block">SKU:</label>
-      <input class="form-control" type="text" formControlName="sku">
+      <input placeholder="Clave (SKU) del producto" class="form-control" type="text" formControlName="sku">
     </div>
     <div class="form-group">
       <label class="center-block">Stock:</label>
-      <input class="form-control" type="text" formControlName="stock">
+      <input placeholder="Cantidad de producto" class="form-control" type="text" formControlName="stock">
     </div>
     <div class="form-group">
       <label class="center-block">Nombre:</label>
-      <input class="form-control" type="text" formControlName="nombre">
+      <input placeholder="Nombre del producto" class="form-control" type="text" formControlName="nombre">
     </div>
     <div class="form-group">
       <label class="center-block">Precio:</label>
       <div class="input-group">
          <span class="input-group-addon">$</span>
-         <input class="form-control" type="text" formControlName="precio">
+         <input placeholder="Precio del producto" class="form-control" type="text" formControlName="precio">
          <span class="input-group-addon">.00</span>
       </div>
     </div>
@@ -32,16 +32,16 @@
       <label class="center-block">Descuento:</label>
       <div class="input-group">
          <span class="input-group-addon">%</span>
-          <input class="form-control" type="text" formControlName="descuento">
+          <input placeholder="Cantidad del producto (Si existe)" class="form-control" type="text" formControlName="descuento">
       </div>
     </div>
      <div class="form-group">
       <label class="center-block">Imagen:</label>
-      <input class="form-control" type="text" formControlName="imagen">
+      <input placeholder="Url de la imagen" class="form-control" type="text" formControlName="imagen">
     </div>
      <div class="form-group">
       <label class="center-block">Marca:</label>
-      <input class="form-control" type="text" formControlName="marca">
+      <input placeholder="Marca Comercial del producto" class="form-control" type="text" formControlName="marca">
     </div>
     <h4>Imagenes</h4>
     <h5>Crear galeria de imagenes:</h5>
@@ -50,17 +50,17 @@
         <div style="margin-left:1em;">
           <div class="form-group">
             <label class="center-block">Url de la imagen {{ i+ 1 }}:
-              <input class="form-control" formControlName="url">
+              <input placeholder="Url de la imagen" class="form-control" formControlName="url">
             </label>
           </div>
-         <div class="form-group">
-            <label class="center-block">Descripcion:
-              <input class="form-control" formControlName="descripcion">
-            </label>
-         </div>
           <div class="form-group">
             <label class="center-block">Titulo:
-              <input class="form-control" formControlName="titulo">
+              <input placeholder="Titulo de la imagen" class="form-control" formControlName="titulo">
+            </label>
+         </div> 
+         <div class="form-group">
+            <label class="center-block">Descripcion:
+              <input placeholder="Descripcion de la imagen" class="form-control" formControlName="descripcion">
             </label>
          </div>
         </div>
@@ -92,7 +92,7 @@
       <label class="center-block">Descripcion:</label>
       <textarea rows="7" class="form-control" formControlName="descripcion"></textarea>
     </div>
-    <button class="btn btn-success" type="submit">Agregar Producto</button>
+    <button [ngClass]="{ invalid : !productoForm.valid }"   class="btn btn-success" type="submit">Agregar Producto</button>
   </form>
 </div>
 {{ productoForm.value | json }}
