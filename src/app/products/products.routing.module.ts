@@ -8,7 +8,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { ContactComponent } from '../shared/contact/contact.component';
 const productRoutes: Routes = [
   { path: 'productos', component:  ProductsComponent },
-  { path: 'productos/:id',component: DetailsComponent },
+  { path: 'productos/:departamento/:id',component: DetailsComponent },
   { path: 'new',component: NewProductComponent },
   { path: 'contacto', component: ContactComponent }, 
   { path: 'about', component: AboutComponent }

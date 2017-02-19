@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit , OnDestroy {
   }
   private getProductFromRouteParams( ): void{
     this.subscription =  this.route.params
-                             .switchMap((params: Params) => this._ProductsService.getProductPerRoute(+params['id']))
+                             .switchMap((params: Params) => this._ProductsService.getProductPerRoute(params['departamento'],+params['id']))
                              .subscribe(producto => this.producto = producto); 
   }
 }

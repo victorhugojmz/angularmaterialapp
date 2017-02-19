@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                         <h1>{{ producto.nombre }}</h1>
-                        <h2>{{ producto.precio | currency:'MXN':true }}</h2>
+                        <h4>{{ producto.precio | currency:'MXN':true }}</h4>
                         <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
                         <h3>Talla: {{ producto.size }}</h3>
                         <h4>{{ producto.marca }}</h4>

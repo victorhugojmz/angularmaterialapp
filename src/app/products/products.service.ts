@@ -10,14 +10,14 @@ export class ProductsService {
   public getProducts(_hasfilter?: string): Observable<Producto[]> {
    return _hasfilter ? this._http.get(this.url + _hasfilter + '/.json').map(response =>  response.json()) : this._http.get(this.url + '/Clothing/.json').map(response => response.json()); 
   }
-  public getProductPerRoute(id: number) : Observable<Producto>{ 
-    return this.getProducts()
+  public getProductPerRoute(departamento: string, id: number) : Observable<Producto>{ 
+    return this.getProducts(departamento)
                 .map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }
   public sendDataToServer(hero): Observable<Producto> { 
         const body = JSON.stringify(hero);
         const headers = new Headers({ });
         headers.append('Content-Type', 'application/json');
-        return this._http.post(this.api,body,{ headers: headers}).map((data: Response) => data.json());
+        return this._http.post(this.url,body,{ headers: headers}).map((data: Response) => data.json());
   } 
 }
