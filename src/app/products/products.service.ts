@@ -5,11 +5,10 @@ import { Producto , Departamento ,departamentosQuerySet } from '../products';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductsService { 
- url = "https://productos-e9bd9.firebaseio.com/Clothing/.json";
- api = "https://dtt-rest-api.firebaseio.com/.json";
+ private url = "https://productos-e9bd9.firebaseio.com/";
  constructor(private _http:  Http){ }
-  public getProducts(): Observable<Producto[]> {
-   return this._http.get(this.url).map(response =>  response.json());
+  public getProducts(_hasfilter?: string): Observable<Producto[]> {
+   return _hasfilter ? this._http.get(this.url + _hasfilter + '/.json').map(response =>  response.json()) : this._http.get(this.url + '/Clothing/.json').map(response => response.json()); 
   }
   public getProductPerRoute(id: number) : Observable<Producto>{ 
     return this.getProducts()
