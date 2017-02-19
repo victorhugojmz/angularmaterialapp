@@ -11,8 +11,9 @@
                         <div *ngIf="producto.descuento">
                             <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
                         </div>
+                        <h3> Talla: {{ producto.size }}</h3>
                         <h4>{{ producto.marca }}</h4>
-                        <p>{{ producto.detalles }}</p>
+                        <p>{{ producto.descripcion }}</p>
                         <div style="float: left;" *ngFor="let color of producto.colores" >
                             <div [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30}"></div>
                         </div>
