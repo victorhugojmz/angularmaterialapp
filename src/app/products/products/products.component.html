@@ -1,4 +1,4 @@
-<app-parallax  *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
+<app-parallax *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
 <app-loader *ngIf="!ListOfProducts"></app-loader>
 <div *ngIf="ListOfProducts" class="container">
   <form class="form">
@@ -11,5 +11,4 @@
   </form>
   <searchbox (update) = "term = $event"></searchbox>
   <app-list-item *ngFor="let producto of ListOfProducts | filter:term" [producto]="producto"></app-list-item>
-  {{ ListOfProducts | json }}
 </div>

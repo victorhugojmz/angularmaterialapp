@@ -1,8 +1,8 @@
 export class Producto {
-    id: number;
-    sku: string;
+    id?: number;
+    sku?: string;
     stock: number;
-    size: string;
+    size?: string;
     nombre: string;
     precio: number;
     departamento: string;
@@ -11,7 +11,7 @@ export class Producto {
     imagen: string;
     imagenes: Imagen[];
     marca: string;
-    colores: Color[];
+    colores?: Color[];
     specs: Spec[ ];
 }
  export class Imagen { 
