@@ -1,4 +1,5 @@
 export class Producto {
+    $key?: string;    
     id?: number;
     sku?: string;
     stock?: number;
