@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent  {
   constructor() { }
-  public seleccionar(): void {
-    console.log("padre");
-  }
-  public eliminar($event): void {
-    $event.stopPropagation();
-    console.log("hijo");
-  }
 }
+

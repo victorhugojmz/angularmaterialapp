@@ -1,7 +1,6 @@
 <app-parallax *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
 <app-loader *ngIf="!ListOfProducts"></app-loader>
-<div *ngIf="ListOfProducts" class="container">
-   {{ lol | json }}
+<div *ngIf="ListOfProducts">
   <form class="form">
     <div class="form-group">
       <select  class="form-control" #departamento (change)="filterProductsPerDepartment(departamento.value)">
@@ -11,18 +10,20 @@
     </div>
   </form>
   <searchbox (update) = "term = $event"></searchbox>
-  <article *ngFor="let producto of ListOfProducts | filter:term">
-  <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
-    <figure class="thumbnail">
-          <img (click)="OnSelectedProduct(producto)" src="{{ producto.imagen }}" alt="{{ producto.detalles }}">
-        <div class="caption">
-              <h3>{{ producto.nombre }}</h3>
-              <h4>{{ producto.precio | currency:'MXN':true }}</h4>
-              <h5>{{ producto.marca }}</h5>
-        <button type="button" (click)="eliminar(producto)" class="btn btn-default">Eliminar</button>
-        </div>
-    </figure>
-  </div>
-  <button class="btn btn-danger"  type="button" (click)="delete()">Eliminar Producto</button>
-</article>
+  <md-card class="example-card" *ngFor="let producto of ListOfProducts | filter:term">
+    <md-card-header>
+      <md-card-title><h3>{{ producto.nombre }}</h3></md-card-title>
+      <md-card-subtitle><h4>{{ producto.marca }}</h4></md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="{{ producto.imagen }}" alt="{{ producto.detalles }}">
+    <md-card-content>
+      <p>
+        {{ producto.descripcion }}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button type="button" (click)="delete()">Eliminar Producto</button>
+      <button md-button  type="button" (click)="OnSelectedProduct(producto)">Detalles</button>
+    </md-card-actions>
+  </md-card>
 </div>
