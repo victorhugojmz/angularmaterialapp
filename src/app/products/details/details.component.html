@@ -15,7 +15,7 @@
                         <h4>Marca: {{ producto.marca }}</h4>
                         <p>Descripcion: {{ producto.descripcion }}</p>
                         <div *ngIf="producto.colores">
-                             <h5>Colores Discponibles:</h5> 
+                             <h5>Colores Disponibles:</h5> 
                              <div style="float: left;" *ngFor="let color of producto.colores" >
                                 <figure [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30, 'margin-left.px': 5}"></figure>
                              </div>
