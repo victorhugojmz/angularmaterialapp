@@ -25,12 +25,12 @@ declarations: [
     FooterComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule, 
     FormsModule,
     HttpModule,
     ProductsModule,
     RoutesModule, 
-    MaterialModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -1,8 +1,14 @@
-<md-toolbar>
+<md-toolbar color="primary" class="navigation">
   <a routerLinkActive="active" routerLink="/">
        <img alt="Angular" src="../favicon.ico"> 
  </a>
-  <md-toolbar-row *ngFor="let navigation of navigationRoutes" routerLinkActive="active">
-    <span><a routerLink="{{ navigation.route }}">{{ navigation.title }}</a></span>
-  </md-toolbar-row>
+ <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+  <md-menu #menu="mdMenu">
+    <a md-menu-item class="menu" routerLink="{{ navigation.route }}" *ngFor="let navigation of navigationRoutes">
+      <md-icon>{{ navigation.icon }}</md-icon> 
+      <span>{{ navigation.title }}</span>
+    </a>
+  </md-menu>
 </md-toolbar>
