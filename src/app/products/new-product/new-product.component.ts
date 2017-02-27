@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angu
 })
 export class NewProductComponent implements OnInit {
   @Input() producto:Producto;
+  title:string;
   productoForm: FormGroup;
   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
@@ -82,22 +83,30 @@ export class NewProductComponent implements OnInit {
       return this.productoForm.get('specs') as FormArray;
   }
   private onSubmit(){
-     this._productService.sendDataToServer(this.prepareProductToPost()).subscribe(data => console.log(data));
+    console.log(this.prepareProductToPost());
+  }
+  private InitializeValuesIfProductExists(){
+  this.productoForm.patchValue({
+          nombre: this.producto.nombre,
+          sku: this.producto.sku,
+          stock: this.producto.stock,
+          precio: this.producto.precio,
+          departamento:  this.producto.departamento,
+          descuento :  this.producto.descuento,
+          descripcion: this.producto.descripcion,
+          imagen: this.producto.imagen,
+          imagenes: this.producto.imagenes[0] || new Imagen(),
+          marca: this.producto.marca
+    });
   }
   ngOnInit() {
     this.createForm();
-    this.productoForm.patchValue({
-      nombre: this.producto.nombre,
-      sku: this.producto.sku,
-      stock: this.producto.stock,
-      precio: this.producto.precio,
-      departamento:  this.producto.departamento,
-      descuento :  this.producto.descuento,
-      descripcion: this.producto.descripcion,
-      imagen: this.producto.imagen,
-      imagenes: this.producto.imagenes,
-      marca: this.producto.marca,
-      specs: this.producto.specs
-    });
+    if(this.producto){
+        this.title = "Modificar Producto"
+        this.InitializeValuesIfProductExists();
+    }
+    else{
+      this.title = "Crear un nuevo producto";
+    }
   }
 }

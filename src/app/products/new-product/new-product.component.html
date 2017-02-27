@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Modificar Producto</h1>
+  <h1>{{ title }}</h1>
   <form [formGroup]="productoForm" (ngSubmit)="onSubmit()" novalidate>
      <div class="form-group">
       <label class="center-block">SKU:</label>
@@ -92,6 +92,6 @@
       <label class="center-block">Descripcion:</label>
       <textarea rows="7" class="form-control" formControlName="descripcion"></textarea>
     </div>
-    <button [ngClass]="{ disabled : !productoForm.valid }" class="btn btn-success" [disabled]="!productoForm.valid" type="submit">Agregar Producto</button>
+    <button class="btn btn-success" [disabled]="!productoForm.valid" type="submit">Agregar Producto</button>
   </form>
 </div>
