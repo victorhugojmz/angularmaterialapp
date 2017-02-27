@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
 @Component({
@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angu
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent implements OnInit {
+  @Input() producto:Producto;
   productoForm: FormGroup;
   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
@@ -36,6 +37,7 @@ export class NewProductComponent implements OnInit {
        (spec: Spec)=> Object.assign({},spec)
       );
      const productoModel: Producto = {
+          id: this.producto.id,
           sku: formModel.sku as string,
           stock: formModel.stock as number, 
           nombre: formModel.nombre as string,
@@ -84,5 +86,18 @@ export class NewProductComponent implements OnInit {
   }
   ngOnInit() {
     this.createForm();
+    this.productoForm.patchValue({
+      nombre: this.producto.nombre,
+      sku: this.producto.sku,
+      stock: this.producto.stock,
+      precio: this.producto.precio,
+      departamento:  this.producto.departamento,
+      descuento :  this.producto.descuento,
+      descripcion: this.producto.descripcion,
+      imagen: this.producto.imagen,
+      imagenes: this.producto.imagenes,
+      marca: this.producto.marca,
+      specs: this.producto.specs
+    });
   }
 }
