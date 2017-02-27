@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ProductsModule } from './products/products.module';
-
 /* Route Module */
 import { RoutesModule } from './routes';
 //Componentes
