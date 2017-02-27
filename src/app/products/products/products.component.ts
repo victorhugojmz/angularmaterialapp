@@ -32,9 +32,4 @@ export class ProductsComponent implements OnInit {
   public OnSelectedProduct(producto: Producto){
       this.router.navigate(['/productos'+ '/' + producto.departamento + '/', producto.id]);
   }  
-  eliminar(producto){
-    this._ProductsService.dl(producto).subscribe(l => console.log(l)); 
-    let index = this.ListOfProducts.indexOf(producto);
-    this.ListOfProducts.splice(index,1);
-}
 }
