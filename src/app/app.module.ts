@@ -12,7 +12,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FooterComponent } from './shared/footer/footer.component'
+import { FooterComponent } from './shared/footer/footer.component';
+import { ButtonComponent } from './shared/button/button.component';
 
 @NgModule({
 declarations: [
@@ -20,6 +21,7 @@ declarations: [
     HomeComponent,
     NotFoundComponent,
     NavigationComponent,
+    ButtonComponent,
     FooterComponent
   ],
   imports: [
