@@ -15,7 +15,6 @@ import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
 import { NewProductComponent } from './new-product/new-product.component';
-import { ButtonComponent } from './Users/vicbarriosjimenez/Desktop/proyecto-angular/src/app/shared/button/button.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,8 +32,7 @@ import { ButtonComponent } from './Users/vicbarriosjimenez/Desktop/proyecto-angu
     FilterPipe,
     SearchComponent,
     HighlightDirective,
-    NewProductComponent,
-    ButtonComponent
+    NewProductComponent
 ],
   providers: [ ProductsService ]
 })
