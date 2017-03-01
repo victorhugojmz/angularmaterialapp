@@ -63,6 +63,7 @@ export class NewProductComponent implements OnInit {
       const specsFormArray = this._formBuilder.array(
                  specs.map((spec: Spec)=> this._formBuilder.group(spec))
       );  
+      this.productoForm.setControl('specs', specsFormArray);
   }
   private addNewImagenToArray():void {
     this.imagenes.push(this._formBuilder.group(new Imagen()));
@@ -86,7 +87,7 @@ export class NewProductComponent implements OnInit {
     console.log(this.prepareProductToPost());
   }
   private InitializeValuesIfProductExists(){
-  this.productoForm.patchValue({
+    this.productoForm.patchValue({
           nombre: this.producto.nombre,
           sku: this.producto.sku,
           stock: this.producto.stock,
@@ -95,9 +96,10 @@ export class NewProductComponent implements OnInit {
           descuento :  this.producto.descuento,
           descripcion: this.producto.descripcion,
           imagen: this.producto.imagen,
-          imagenes: this.producto.imagenes[0] || new Imagen(),
           marca: this.producto.marca
     });
+    this.setImagenes(this.producto.imagenes);
+    this.setItemSpecs(this.producto.specs);
   }
   ngOnInit() {
     this.createForm();
