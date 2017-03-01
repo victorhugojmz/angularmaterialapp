@@ -7,7 +7,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li *ngFor="let navroute of navigationRoutes" ><a routerLink="{{ navroute.route }}"> {{ navroute.title }}</a></li>
+        <li *ngFor="let navroute of navigationRoutes" ><a routerLink="{{ navroute.route }}"> <i [class]="navroute.icon"></i>  {{ navroute.title }}</a></li>
       </ul>
     </div>
   </div>

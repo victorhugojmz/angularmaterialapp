@@ -1,6 +1,6 @@
 export const NavigationRoutes  = [
-      { title:'Productos', route: '/productos',icon:'view_list'},
-      { title:'Contacto', route: '/contacto',icon: 'contacts'},
-      { title:'About', route: '/about',icon: 'question_answer' },
-      { title:'New', route: '/new', icon:''}
+      { title:'Productos', route: '/productos',icon:'glyphicon glyphicon-plus'},
+      { title:'Contacto', route: '/contacto',icon: 'glyphicon glyphicon-inbox'},
+      { title:'About', route: '/about',icon: 'glyphicon glyphicon-info-sign' },
+      { title:'Nuevo Producto', route: '/new', icon:'glyphicon glyphicon-plus'}
 ];
