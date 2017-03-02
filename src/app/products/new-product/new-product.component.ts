@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
 @Component({
-  selector: 'app-new-product',
+  selector: 'product-form',
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.css']
 })
