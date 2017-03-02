@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class ProductsService { 
  private url = "https://productos-e9bd9.firebaseio.com/";
  private l = "https://lolapi-9b8ee.firebaseio.com/";
+ private departamentosQuerySet: Departamento[];
  constructor(private _http:  Http){ }
   public getProducts(_hasfilter?: string): Observable<Producto[]> {
    return _hasfilter ? this._http.get(this.url + _hasfilter + '/.json').map(response =>  response.json()) : this._http.get(this.url + 'Clothing/.json').map(response => response.json()); 
@@ -26,5 +27,8 @@ export class ProductsService {
   }
   public load(){ 
     return this._http.get(this.l+ 'productos' + '/.json').map(response => response.json());
+  }
+  public getDepartaments ( ): Departamento[]{
+    return this.departamentosQuerySet;
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
 @Component({
-  selector: 'product-form',
+  selector: 'app-new-product',
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.css']
 })
@@ -83,7 +83,7 @@ export class NewProductComponent implements OnInit {
       return this.productoForm.get('specs') as FormArray;
   }
   private onSubmit(): void {
-      this.prepareProductToPost();  
+    this.prepareProductToPost();  
   }
   private InitializeValuesIfProductExists(): void {
     this.productoForm.patchValue({
