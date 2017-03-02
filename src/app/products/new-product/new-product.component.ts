@@ -38,7 +38,6 @@ export class NewProductComponent implements OnInit {
        (spec: Spec)=> Object.assign({},spec)
       );
      const productoModel: Producto = {
-          id: this.producto.id,
           sku: formModel.sku as string,
           stock: formModel.stock as number, 
           nombre: formModel.nombre as string,
@@ -83,10 +82,10 @@ export class NewProductComponent implements OnInit {
   get specs( ): FormArray {
       return this.productoForm.get('specs') as FormArray;
   }
-  private onSubmit(){
-    console.log(this.prepareProductToPost());
+  private onSubmit(): void {
+      this.prepareProductToPost();  
   }
-  private InitializeValuesIfProductExists(){
+  private InitializeValuesIfProductExists(): void {
     this.productoForm.patchValue({
           nombre: this.producto.nombre,
           sku: this.producto.sku,
@@ -104,7 +103,7 @@ export class NewProductComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     if(this.producto){
-        this.title = "Modificar Producto"
+        this.title = "Modificar Producto";
         this.InitializeValuesIfProductExists();
     }
     else{
