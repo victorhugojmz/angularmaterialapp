@@ -15,6 +15,7 @@ import { FilterPipe } from './filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
 import { NewProductComponent } from './new-product/new-product.component';
+import { DepartmentComponent } from './department/department.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +33,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     FilterPipe,
     SearchComponent,
     HighlightDirective,
-    NewProductComponent
+    NewProductComponent,
+    DepartmentComponent
 ],
   providers: [ ProductsService ]
 })
