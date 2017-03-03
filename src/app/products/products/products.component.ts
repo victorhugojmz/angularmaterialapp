@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router,ActivatedRoute,Params} from '@angular/router';
 import { ProductsService , Producto , departamentosQuerySet ,Departamento } from '../../products';
 @Component({
   selector: 'app-products',
