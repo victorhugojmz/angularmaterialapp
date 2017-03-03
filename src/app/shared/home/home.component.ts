@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService, Departamento } from '../../products';
+import { ProductsService, Departamento, departamentosQuerySet} from '../../products';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,8 +8,8 @@ import { ProductsService, Departamento } from '../../products';
 export class HomeComponent implements OnInit {
   public departamentos: Departamento[];
   constructor(private _productsService: ProductsService) { }
-  ngOnInit(){
-    this.departamentos = this._productsService.getDepartaments();
+  ngOnInit(): void {
+      this.departamentos = departamentosQuerySet;
   }
 }
 
