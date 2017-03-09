@@ -8,6 +8,7 @@ import { ContactComponent } from '../shared/contact/contact.component';
 import { DepartmentComponent } from './department/department.component';
 const productRoutes: Routes = [
   { path: 'departamentos', component: DepartmentComponent },
+  { path: 'departamentos/:nombre', component: ProductsComponent },  
   { path: 'productos/:departamento/:id',component: DetailsComponent },
   { path: 'new',component: NewProductComponent },
   { path: 'contacto', component: ContactComponent }, 

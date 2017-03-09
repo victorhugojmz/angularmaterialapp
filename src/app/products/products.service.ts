@@ -24,8 +24,9 @@ export class ProductsService {
   public getDepartaments( ): Observable<Departamento[]>{
       return this._http.get(this.depto).map((response: Response)=>response.json());
   }
-  public getDepartment(nombre: string): Observable<Departamento> {
-       return this.getDepartaments()
-                  .map((departamento: Departamento[]) => departamento.find((departamento:Departamento)=> departamento.nombre  === nombre));
- }
+  public getDepartment(nombre: string) {
+    var departament =  this.getDepartaments().map((departamento: Departamento[]) => departamento.find((departamento: Departamento)=> departamento.nombre === nombre));
+    var products =  this.getProducts(nombre);
+    return Observable.forkJoin(departament,products); 
+    }
 }
