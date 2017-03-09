@@ -16,6 +16,7 @@ export class DepartmentComponent implements OnInit {
     this.router.navigate(['/departamentos' + '/' + departamento.nombre]);
   }                                
   private getListOfDepartments(){
-    this.departamentos =  this._productsService.getDepartaments();
+    this._productsService.getDepartaments()
+        .subscribe(departamentos => this.departamentos= departamentos);
   }               
 }

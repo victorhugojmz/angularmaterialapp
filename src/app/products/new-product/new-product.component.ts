@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
+import { forbiddenNameValidator } from './validator';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -18,7 +19,11 @@ export class NewProductComponent implements OnInit {
         this.productoForm = this._formBuilder.group({
           sku: ['', Validators.required], 
           stock: ['', Validators.required],
-          nombre: ['', Validators.required],
+          nombre: ['', [
+              Validators.required,
+              Validators.minLength(5),
+              forbiddenNameValidator(/bob/i)
+          ]],
           precio: ['', Validators.required],
           departamento: ['', Validators.required],
           descuento: [''],
