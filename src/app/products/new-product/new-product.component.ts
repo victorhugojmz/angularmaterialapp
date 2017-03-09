@@ -14,7 +14,7 @@ export class NewProductComponent implements OnInit {
   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
-   }
+  }
   public createForm ( ): void  { 
         this.productoForm = this._formBuilder.group({
           sku: ['', Validators.required], 
