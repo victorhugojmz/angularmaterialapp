@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
-import { Producto , Departamento ,departamentosQuerySet } from '../products';
+import { Producto , Departamento } from '../products';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductsService { 

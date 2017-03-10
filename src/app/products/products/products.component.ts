@@ -22,6 +22,6 @@ export class ProductsComponent implements OnInit {
                    .subscribe((result: DepartamentData) => { 
                                     this.departamento =  result.departamento,  
                                     this.ListOfProducts = result.productos 
-                                  });
+                              });
   }
 }  
