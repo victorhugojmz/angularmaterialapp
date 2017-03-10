@@ -20,13 +20,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.getDepartmentDetails();
   }
-  /*public getListOfProducts(_hasfilter?: string): void {
-        this._ProductsService.getProducts(_hasfilter)
-                              .subscribe(_listOfProducts => this.ListOfProducts = _listOfProducts);
-  }
-  public filterProductsPerDepartment(departmentSelected : string): void {
-        this.ListOfProducts = null;
-  }*/
   public OnSelectedProduct(producto: Producto){
       this._router.navigate(['/departamentos/' + producto.departamento + '/', producto.id]);
   }
@@ -35,8 +28,7 @@ export class ProductsComponent implements OnInit {
                       .switchMap((params: Params) => this._ProductsService.getDepartment(params['nombre']))
                       .map((data)=> new Object({ departamento: data[0] , productos: data[1] }))
                       .subscribe(
-                          (result: DepartamentView) => 
-                                  { 
+                          (result: DepartamentView) => { 
                                     this.departamento =  result.departamento,  
                                     this.ListOfProducts = result.productos 
                                   });

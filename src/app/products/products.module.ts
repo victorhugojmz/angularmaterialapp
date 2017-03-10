@@ -16,6 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DepartmentComponent } from './department/department.component';
+import { ListItemComponent } from './list-item/list-item.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,8 @@ import { DepartmentComponent } from './department/department.component';
     SearchComponent,
     HighlightDirective,
     NewProductComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    ListItemComponent
 ],
   providers: [ ProductsService ]
 })
