@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Producto }  from '../../products';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
@@ -7,7 +8,10 @@ import { Producto }  from '../../products';
 })
 export class ListItemComponent implements OnInit {
   @Input('product-data') public producto: Producto;
-  constructor() { }
+  constructor( private _router : Router) { }
   ngOnInit() {
+  }
+  public OnSelectedProduct(producto: Producto){
+      this._router.navigate(['/departamentos/' + producto.departamento + '/', producto.id]);
   }
 }

@@ -20,9 +20,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.getDepartmentDetails();
   }
-  public OnSelectedProduct(producto: Producto){
-      this._router.navigate(['/departamentos/' + producto.departamento + '/', producto.id]);
-  }
   private getDepartmentDetails( ){
             this.route.params
                       .switchMap((params: Params) => this._ProductsService.getDepartment(params['nombre']))
