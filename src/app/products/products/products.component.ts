@@ -1,10 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router,ActivatedRoute,Params} from '@angular/router';
-import { ProductsService , Producto , departamentosQuerySet ,Departamento } from '../../products';
-interface DepartamentView { 
-  productos : Producto[];
-  departamento:  Departamento;
-} 
+import { ProductsService , Producto ,Departamento , DepartamentData } from '../../products';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -25,7 +21,7 @@ export class ProductsComponent implements OnInit {
                       .switchMap((params: Params) => this._ProductsService.getDepartment(params['nombre']))
                       .map((data)=> new Object({ departamento: data[0] , productos: data[1] }))
                       .subscribe(
-                          (result: DepartamentView) => { 
+                          (result: DepartamentData) => { 
                                     this.departamento =  result.departamento,  
                                     this.ListOfProducts = result.productos 
                                   });

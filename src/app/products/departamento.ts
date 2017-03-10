@@ -1,3 +1,4 @@
+import { Producto } from './../products';
 export class Departamento {
     public nombre: string;
     public descripcion ?: string;
@@ -10,3 +11,7 @@ export class Departamento {
         this.imagen = _imagen;
     }  
 }
+export interface DepartamentData { 
+  productos : Producto[];
+  departamento:  Departamento;
+} 
