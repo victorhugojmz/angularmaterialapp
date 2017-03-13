@@ -1,7 +1,5 @@
 <app-parallax *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
 <app-loader *ngIf="!departamento"></app-loader>
-<div *ngIf="departamento">
-</div>
 <div *ngIf="ListOfProducts" class="container">
   <h2>Busca algún producto de tu interés del departamento {{ departamento.nombre }}</h2>
   <searchbox (update) = "term = $event"></searchbox>
