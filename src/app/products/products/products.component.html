@@ -3,6 +3,7 @@
 <div *ngIf="departamento">
 </div>
 <div *ngIf="ListOfProducts" class="container">
+  <h2>Busca algún producto de tu interés del departamento {{ departamento.nombre }}</h2>
   <searchbox (update) = "term = $event"></searchbox>
   <app-list-item *ngFor="let producto of ListOfProducts | filter:term" [product-data]="producto"></app-list-item>
 </div>
