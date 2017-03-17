@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map';
 export class ProductsService { 
  private url = "https://productos-e9bd9.firebaseio.com/";
  constructor(private _http:  Http){ }
-  public getProducts(filter: string): Observable<Producto[]> {
-   return  this._http.get(this.url + filter + '.json').map(response =>  response.json()); 
+  public getProducts(departamento: string): Observable<Producto[]> {
+   return  this._http.get(this.url + departamento + '.json').map(response =>  response.json()); 
   }
   public getProductPerRoute(departamento: string, id: number) : Observable<Producto>{ 
     return this.getProducts(departamento)
@@ -24,7 +24,10 @@ export class ProductsService {
       return this._http.get(this.url + 'departamentos.json').map((response: Response)=>response.json());
   }
   public getDepartment(nombreDepartamento: string) {
-    let  departament  = this.getDepartaments().map((departamento: Departamento[]) => departamento.find((departamento: Departamento)=> departamento.nombre === nombreDepartamento ));
+    let  departament  = this.getDepartaments()
+                            .map((departamento: Departamento[]) => {
+                                departamento.find((departamento: Departamento) => departamento.nombre === nombreDepartamento)
+                             });
     let products =  this.getProducts(nombreDepartamento);
     return Observable.forkJoin(departament,products); 
   }
