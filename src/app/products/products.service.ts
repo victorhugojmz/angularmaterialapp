@@ -8,8 +8,8 @@ export class ProductsService {
  private url = "https://productos-e9bd9.firebaseio.com/";
  private depto = "https://productos-e9bd9.firebaseio.com/departamentos.json";
  constructor(private _http:  Http){ }
-  public getProducts(_hasfilter?: string): Observable<Producto[]> {
-   return _hasfilter ? this._http.get(this.url + _hasfilter + '/.json').map(response =>  response.json()) : this._http.get(this.url + 'Clothing/.json').map(response => response.json()); 
+  public getProducts(filter: string): Observable<Producto[]> {
+   return  this._http.get(this.url + filter + '/.json').map(response =>  response.json()); 
   }
   public getProductPerRoute(departamento: string, id: number) : Observable<Producto>{ 
     return this.getProducts(departamento)
@@ -24,9 +24,9 @@ export class ProductsService {
   public getDepartaments( ): Observable<Departamento[]>{
       return this._http.get(this.depto).map((response: Response)=>response.json());
   }
-  public getDepartment(nombre: string) {
-    let  departament  = this.getDepartaments().map((departamento: Departamento[]) => departamento.find((departamento: Departamento)=> departamento.nombre === nombre));
-    let products =  this.getProducts(nombre);
+  public getDepartment(nombreDepartamento: string) {
+    let  departament  = this.getDepartaments().map((departamento: Departamento[]) => departamento.find((departamento: Departamento)=> departamento.nombre === nombreDepartamento ));
+    let products =  this.getProducts(nombreDepartamento);
     return Observable.forkJoin(departament,products); 
   }
 }
