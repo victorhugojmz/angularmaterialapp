@@ -22,10 +22,10 @@ export class DetailsComponent implements OnInit , OnDestroy {
   public updateProduct(){
       this.update = !this.update;  
   }
-  ngOnInit() {
+  public ngOnInit() {
     this.getProductFromRouteParams();
   }
-  ngOnDestroy( ){  
+  public ngOnDestroy( ){  
     this.subscription.unsubscribe();
   }
   private getProductFromRouteParams(): void{
