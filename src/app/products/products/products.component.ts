@@ -11,8 +11,8 @@ export class ProductsComponent implements OnInit {
   public ListOfProducts: Producto[];
   public departamentos: Departamento[];
   public departamento: Departamento;
-  constructor(private _ProductsService : ProductsService, private _router: Router, private route: ActivatedRoute) { }
-  ngOnInit() {
+  constructor(private _ProductsService : ProductsService, private route: ActivatedRoute) { }
+  public ngOnInit() {
       this.getDepartmentDetails();
   }
   private getDepartmentDetails( ){

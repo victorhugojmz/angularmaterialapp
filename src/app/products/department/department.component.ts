@@ -13,10 +13,10 @@ export class DepartmentComponent implements OnInit {
     this.getListOfDepartments();
   }                                             
   public OnSelectedDepartment(departamento: Departamento) {
-    this.router.navigate(['/departamentos' + '/' + departamento.nombre]);
+    this.router.navigate(['/departamentos/' + departamento.nombre]);
   }                                
   private getListOfDepartments(){
     this._productsService.getDepartaments()
-        .subscribe(departamentos => this.departamentos= departamentos);
+        .subscribe(departamentos => this.departamentos = departamentos);
   }               
 }
