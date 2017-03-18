@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { Router} from '@angular/router';
-import { ProductsService , Producto , departamentosQuerySet ,Departamento } from '../../products';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router,ActivatedRoute,Params} from '@angular/router';
+import { ProductsService , Producto , Departamento , DepartamentData } from '../../products';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,25 +11,18 @@ export class ProductsComponent implements OnInit {
   public ListOfProducts: Producto[];
   public departamentos: Departamento[];
   public departamento: Departamento;
-  lol;
-  constructor(private _ProductsService : ProductsService, private router: Router) { }
-  ngOnInit() {
-    this.getListOfProducts();
-    this.departamentos = departamentosQuerySet;
+  subscription;
+  constructor(private _ProductsService : ProductsService, private route: ActivatedRoute) { }
+  public ngOnInit() {
+      this.getDepartmentDetails();
   }
-  public getListOfProducts(_hasfilter?: string): void {
-        this._ProductsService.getProducts(_hasfilter)
-                              .subscribe(_listOfProducts => this.ListOfProducts = _listOfProducts);
+  private getDepartmentDetails( ){
+      this.route.params
+          .switchMap((params: Params) => this._ProductsService.getDepartment(params['nombre']))
+          .map((departmentData)=> new Object({ departamento: departmentData[0] , productos: departmentData[1] }))
+          .subscribe((result: DepartamentData) => { 
+                                    this.departamento =  result.departamento,  
+                                    this.ListOfProducts = result.productos 
+            });
   }
-  public filterProductsPerDepartment(departmentSelected : string): void {
-        this.ListOfProducts = null;
-        this.setDepartmentTorenderView(departmentSelected);
-        this.getListOfProducts(departmentSelected);
-  }
-   public setDepartmentTorenderView(deparmentNameToSet: string): void {
-        this.departamento = departamentosQuerySet.find((departamento: Departamento) => departamento.nombre === deparmentNameToSet);
-  }
-  public OnSelectedProduct(producto: Producto){
-      this.router.navigate(['/productos'+ '/' + producto.departamento + '/', producto.id]);
-  }  
-}
+}  

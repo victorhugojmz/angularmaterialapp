@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../products';
-export class Hero {
+export class Contacto {
   constructor(
-    public id: number,
-    public name: string,
-    public power: string,
-    public alterEgo?: string
+    public nombre: string,
+    public pais: string,
+    public mensaje: string
   ) {  }
 }
 @Component({
@@ -14,14 +13,16 @@ export class Hero {
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
-  model = new Hero(18,'Dr IQ', this.powers[0], 'Chuck Overstreet');
-  submitted  = false;
+  model =  new Contacto('Victor','Mexico','I love this website');
+  paises: string[] = ["Mexico","USA","Canada","Argentina","Chile"];
+  submitted: boolean;
   onSubmit() { this.submitted = true; }
-  constructor() { }
+  constructor() {
+    this.submitted  = false;
+   }
   ngOnInit() {
   }
   public newHero(){
-    this.model = new Hero(42,'','');
+    this.model = new Contacto('','','');
   }
 }

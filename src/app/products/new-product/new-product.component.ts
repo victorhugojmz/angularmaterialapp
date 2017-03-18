@@ -1,22 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
+import { forbiddenNameValidator } from './validator';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent implements OnInit {
+  @Input() producto:Producto;
+  title:string;
   productoForm: FormGroup;
   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
-   }
+  }
   public createForm ( ): void  { 
         this.productoForm = this._formBuilder.group({
           sku: ['', Validators.required], 
           stock: ['', Validators.required],
-          nombre: ['', Validators.required],
+          nombre: ['', [
+              Validators.required,
+              Validators.minLength(5),
+              forbiddenNameValidator(/bob/i)
+          ]],
           precio: ['', Validators.required],
           departamento: ['', Validators.required],
           descuento: [''],
@@ -60,6 +67,7 @@ export class NewProductComponent implements OnInit {
       const specsFormArray = this._formBuilder.array(
                  specs.map((spec: Spec)=> this._formBuilder.group(spec))
       );  
+      this.productoForm.setControl('specs', specsFormArray);
   }
   private addNewImagenToArray():void {
     this.imagenes.push(this._formBuilder.group(new Imagen()));
@@ -79,10 +87,32 @@ export class NewProductComponent implements OnInit {
   get specs( ): FormArray {
       return this.productoForm.get('specs') as FormArray;
   }
-  private onSubmit(){
-     this._productService.sendDataToServer(this.prepareProductToPost()).subscribe(data => console.log(data));
+  private onSubmit(): void {
+    this.prepareProductToPost();  
+  }
+  private InitializeValuesIfProductExists(): void {
+    this.productoForm.patchValue({
+          nombre: this.producto.nombre,
+          sku: this.producto.sku,
+          stock: this.producto.stock,
+          precio: this.producto.precio,
+          departamento:  this.producto.departamento,
+          descuento :  this.producto.descuento,
+          descripcion: this.producto.descripcion,
+          imagen: this.producto.imagen,
+          marca: this.producto.marca
+    });
+    this.setImagenes(this.producto.imagenes);
+    this.setItemSpecs(this.producto.specs);
   }
   ngOnInit() {
     this.createForm();
+    if(this.producto){
+        this.title = "Modificar Producto";
+        this.InitializeValuesIfProductExists();
+    }
+    else{
+      this.title = "Crear un nuevo producto";
+    }
   }
 }

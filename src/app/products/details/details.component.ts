@@ -15,11 +15,17 @@ export class DetailsComponent implements OnInit , OnDestroy {
   @HostBinding('style.position') position = 'absolute';
   private producto: Producto;
   private subscription;
-  constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) { }
-  ngOnInit() {
+  private update: boolean;
+  constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) {
+     this.update = false;
+  }
+  public updateProduct(){
+      this.update = !this.update;  
+  }
+  public ngOnInit() {
     this.getProductFromRouteParams();
   }
-  ngOnDestroy( ){  
+  public ngOnDestroy( ){  
     this.subscription.unsubscribe();
   }
   private getProductFromRouteParams(): void{

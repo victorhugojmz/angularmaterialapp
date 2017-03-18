@@ -1,0 +1,12 @@
+ <article>
+    <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
+      <figure class="thumbnail">
+            <img (click)="OnSelectedProduct(producto)" src="{{ producto.imagen }}" alt="{{ producto.detalles }}">
+          <figcaption class="caption">
+              <h3>{{ producto.nombre }}</h3>
+              <h4>{{ producto.precio | currency:'MXN':true }}</h4>
+              <h5>{{ producto.marca }}</h5>
+          </figcaption>
+      </figure>
+    </div>
+  </article>

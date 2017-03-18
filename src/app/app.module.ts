@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ProductsModule } from './products/products.module';
-
 /* Route Module */
 import { RoutesModule } from './routes';
 //Componentes
@@ -13,8 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FooterComponent } from './shared/footer/footer.component'
-
+import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
 declarations: [
     AppComponent,
