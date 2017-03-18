@@ -14,12 +14,6 @@ export class ProductsService {
     return this.getProducts(departamento)
                 .map((producto: Producto[]) => producto.find(producto => producto.id === id));
   }
- /* public sendDataToServer(hero): Observable<Producto> { 
-        const body = JSON.stringify(hero);
-        const headers = new Headers({ });
-        headers.append('Content-Type', 'application/json');
-        return this._http.po¡st(this.l+ 'productos/' + '.json',body,{ headers: headers}).map((data: Response) => data.json());
-  }*/
   public getDepartaments( ): Observable<Departamento[]>{
       return this._http.get(this.url + 'departamentos.json').map((response: Response)=>response.json());
   }
