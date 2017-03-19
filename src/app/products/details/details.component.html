@@ -6,9 +6,6 @@
                         <img class="img img-responsive" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
-                         <div *ngIf="update">
-                            <app-new-product [producto]="producto"></app-new-product>
-                        </div>
                         <h1>{{ producto.nombre }}</h1>
                         <h4>{{ producto.precio | currency:'MXN':true }}</h4>
                         <div *ngIf="producto.descuento">
@@ -47,4 +44,8 @@
                 </div>
         </div>
         <button type="button" (click)="updateProduct()" class="btn btn-info">Actualizar</button>
+</div>
+</div>
+<div *ngIf="update">
+    <app-new-product [producto]="producto"></app-new-product>
 </div>

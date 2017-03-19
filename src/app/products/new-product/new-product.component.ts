@@ -9,9 +9,9 @@ import { forbiddenNameValidator } from './validator';
 })
 export class NewProductComponent implements OnInit {
   @Input() producto:Producto;
-  title:string;
-  productoForm: FormGroup;
-  departamentos: Array<string>;
+  public title: string;
+  private productoForm: FormGroup;
+  private departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
   }
