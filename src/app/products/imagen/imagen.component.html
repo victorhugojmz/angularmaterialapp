@@ -2,8 +2,9 @@
     <figure>  
         <img class="img img-responsive" src="{{ img }}">
     </figure>
-    <div class="img-container" *ngFor="let imagen of imagenes">
-        <figure  class="img-thumbnail" (click)="OnImageSelected(imagen)">
+    <div class="img-container">
+        <p>Seleccione una imagen:</p>
+        <figure *ngFor="let imagen of imagenes"  class="img-thumbnail" (click)="OnImageSelected(imagen)">
                 <img src="{{ imagen.url }}" alt="{{ imagen.descripcion }}"> 
         </figure> 
     </div>
