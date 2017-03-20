@@ -1,10 +1,10 @@
 <div>
     <figure>  
-            <img class="img img-responsive" src="{{ img }}">
+        <img class="img img-responsive" src="{{ img }}">
     </figure>
-    <div style="float: left; margin-top: 10px"  *ngFor="let imagen of imagenes">
-    <figure (click)="OnImageSelected(imagen)">
-            <img style="width: 100px; height: 100px; margin-left: 2px;" src="{{ imagen.url }}" alt="{{ imagen.descripcion }}"> 
-    </figure> 
+    <div class="img-container" *ngFor="let imagen of imagenes">
+        <figure  class="img-thumbnail" (click)="OnImageSelected(imagen)">
+                <img src="{{ imagen.url }}" alt="{{ imagen.descripcion }}"> 
+        </figure> 
     </div>
 </div>

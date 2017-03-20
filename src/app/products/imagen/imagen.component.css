@@ -1,3 +1,18 @@
-figure:hover {
+.img-container {
+    float: left; 
+    margin: 10px auto 10px auto;
+    background: lightgray;
+}
+.img-thumbnail {
+    margin-right: 1px;
+}
+.img-thumbnail img {
+    width: 100px;
+    height: 100px;
+}
+.img-thumbnail img:hover{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
     cursor: pointer;
 }
+
