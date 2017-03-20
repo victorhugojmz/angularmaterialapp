@@ -10,11 +10,12 @@ export class Contacto {
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  viewProviders: [ FormsService ]
 })
 export class ContactComponent implements OnInit {
   model =  new Contacto('Victor','Mexico','I love this website');
-  private paises: string[];
+  private paises: any;
   private submitted: boolean;
   onSubmit() { this.submitted = true; }
   constructor(private _formsService: FormsService) {
@@ -28,7 +29,6 @@ export class ContactComponent implements OnInit {
   }
   private getCountries( ){ 
     this._formsService.getCountries()
-        .map(pais => pais.name)
         .subscribe(paises => this.paises = paises);
   }
 }
