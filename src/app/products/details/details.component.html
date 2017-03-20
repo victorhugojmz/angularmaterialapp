@@ -3,7 +3,7 @@
     <div *ngIf="producto">
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
-                        <img class="img img-responsive" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                    <app-imagen [imagen-data]="producto.imagenes" [imagen]="producto.imagen"></app-imagen>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                         <h1>{{ producto.nombre }}</h1>
@@ -11,8 +11,7 @@
                         <div *ngIf="producto.descuento">
                             <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
                         </div>
-                        <h3>Talla: {{ producto.size }}</h3
-                        >
+                        <h3>Talla: {{ producto.size }}</h3>
                         <h4>Marca: {{ producto.marca }}</h4>
                         <p>Descripcion: {{ producto.descripcion }}</p>
                         <div *ngIf="producto.colores">
@@ -21,6 +20,8 @@
                                 <figure [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30, 'margin-left.px': 5}"></figure>
                              </div>
                         </div>
+                        <button type="button" (click)="updateProduct()" class="btn btn-info">Actualizar producto</button>
+                        <button type="button" class="btn btn-danger">Eliminar producto</button>
                 </div>
             </div>
             <br>
@@ -43,7 +44,6 @@
                         </div>
                 </div>
         </div>
-        <button type="button" (click)="updateProduct()" class="btn btn-info">Actualizar</button>
 </div>
 </div>
 <div *ngIf="update">

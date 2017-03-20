@@ -1,6 +1,11 @@
 .full-loader {
-    margin-top: 40vh;
-    margin-bottom:  40vh; 
+   width: 100vw;
+   height: 100vh;
+   z-index: 2;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-content: center;
 }
 .loader {
   border: 5px solid #f3f3f3;
