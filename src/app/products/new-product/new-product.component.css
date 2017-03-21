@@ -9,8 +9,15 @@
   position: relative;
 }
 .lol {
-  z-index: 22;
-  position: relative;
-  width: 90vw;
-  height: 90vh;
+  z-index: 1001;
+  padding: 20px;
+  position: absolute;
+  width: 60vw;
+  height: 60vh;
+  top: 20vh;
+  left: 20vw;
+  right: 20vw;
+  bottom: 20vh;
+  overflow-y: scroll;
+  background: whitesmoke;
 }
