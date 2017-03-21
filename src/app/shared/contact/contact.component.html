@@ -20,7 +20,7 @@
                 required
                 [(ngModel)]="model.pais" name="pais"
                 #pais="ngModel">
-          <option *ngFor="let pais of paises" [value]="pais">{{ pais }}</option>
+          <option *ngFor="let pais of paises" [value]="pais.name">{{ pais.name }}</option>
         </select>
         <div [hidden]="pais.valid || pais.pristine" class="alert alert-danger">
           Es requerido ingresar un pais

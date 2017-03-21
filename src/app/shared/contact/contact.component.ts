@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../../products';
+import { Producto, FormsService } from '../../products';
 export class Contacto {
   constructor(
     public nombre: string,
@@ -10,19 +10,25 @@ export class Contacto {
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  viewProviders: [ FormsService ]
 })
 export class ContactComponent implements OnInit {
   model =  new Contacto('Victor','Mexico','I love this website');
-  paises: string[] = ["Mexico","USA","Canada","Argentina","Chile"];
-  submitted: boolean;
+  private paises: any;
+  private submitted: boolean;
   onSubmit() { this.submitted = true; }
-  constructor() {
+  constructor(private _formsService: FormsService) {
     this.submitted  = false;
    }
   ngOnInit() {
+    this.getCountries();
   }
   public newHero(){
     this.model = new Contacto('','','');
+  }
+  private getCountries( ){ 
+    this._formsService.getCountries()
+        .subscribe(paises => this.paises = paises);
   }
 }

@@ -5,8 +5,7 @@ import { Departamento } from '../../products';
   templateUrl: './parallax.component.html',
   styleUrls: ['./parallax.component.css']
 })
-export class ParallaxComponent{
-  @Input('departamento-details') departamento:  Departamento;
-  color = "lightgreen";
+export class ParallaxComponent {
+  @Input('departamento-details') public departamento: Departamento;
   constructor() {}
 }

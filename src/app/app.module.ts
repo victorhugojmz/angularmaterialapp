@@ -8,18 +8,16 @@ import { ProductsModule } from './products/products.module';
 import { RoutesModule } from './routes';
 //Componentes
 import { AppComponent } from './app.component';
-  //Shared
+// Shared
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
 declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    NavigationComponent,
-    FooterComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule, 

@@ -17,6 +17,7 @@ import { HighlightDirective } from './highlight.directive';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DepartmentComponent } from './department/department.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { ImagenComponent } from './imagen/imagen.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,7 +37,8 @@ import { ListItemComponent } from './list-item/list-item.component';
     HighlightDirective,
     NewProductComponent,
     DepartmentComponent,
-    ListItemComponent
+    ListItemComponent,
+    ImagenComponent
 ],
   providers: [ ProductsService ]
 })

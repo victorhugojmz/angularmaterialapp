@@ -1,0 +1,11 @@
+<div>
+    <figure>  
+        <img class="img img-responsive" src="{{ img }}">
+    </figure>
+    <div class="img-container">
+        <p>Seleccione una imagen</p>
+        <figure *ngFor="let imagen of imagenes"  class="img-thumbnail" (click)="OnImageSelected(imagen)">
+                <img src="{{ imagen.url }}" alt="{{ imagen.descripcion }}"> 
+        </figure> 
+    </div>
+</div>
