@@ -7,20 +7,13 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                         <h1>{{ producto.nombre }}</h1>
-                        <h4>{{ producto.precio | currency:'MXN':true }}</h4>
+                        <h2>{{ producto.marca }}</h2>
+                        <h3>{{ producto.precio | currency:'MXN':true }}</h3>
                         <div *ngIf="producto.descuento">
-                            <h3>Descuento: {{ producto.descuento | percent: '2.2-3' }}</h3>
+                            <h5>Descuento de {{ producto.descuento | percent: '2.2-3' }}</h5>
                         </div>
-                        <h3>Tallas: {{ producto.size }}</h3>
-                        <h4>Marca: {{ producto.marca }}</h4>
-                        <p>Descripcion: {{ producto.descripcion }}</p>
-                        <div *ngIf="producto.colores">
-                             <h5>Colores Disponibles:</h5> 
-                             <div style="float: left;" *ngFor="let color of producto.colores" >
-                                <figure [ngStyle]="{'background-color': color.color, 'width.px': 30, 'height.px':30, 'margin-left.px': 5}"></figure>
-                             </div>
-                        </div>
-                        <br><br>
+                        <p><strong>Descripcion</strong> {{ producto.descripcion }}</p>
+                        <h4>Tallas: {{ producto.size }}</h4>    
                         <button type="button" (click)="updateProduct()" class="btn btn-info">Actualizar producto</button>
                         <button type="button" class="btn btn-danger">Eliminar producto</button>
                 </div>
