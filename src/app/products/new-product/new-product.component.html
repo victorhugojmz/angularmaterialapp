@@ -1,8 +1,9 @@
-  <div class="lol">
+  <div [ngClass]="{ 'pop-up-form' : popUp , 'container' : !popUp }">
     <h1>{{ title }}</h1>
     <form  [formGroup]="productoForm" 
           (ngSubmit)="onSubmit()" 
           novalidate>
+          <button (click)="openForm()" class="btn btn-danger btn-close">Cancelar cambios</button>
        <div class="form-group">
         <label class="center-block">Nombre:</label>
         <input placeholder="Nombre del producto" 

@@ -10,6 +10,7 @@ import { forbiddenNameValidator } from './validator';
 export class NewProductComponent implements OnInit {
   @Input() producto:Producto;
   public title: string;
+  popUp: boolean;
   private productoForm: FormGroup;
   private departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
@@ -108,11 +109,16 @@ export class NewProductComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     if(this.producto){
+        this.popUp = true;
         this.title = "Modificar Producto";
         this.InitializeValuesIfProductExists();
     }
     else{
+      this.popUp = false;
       this.title = "Crear un nuevo producto";
     }
+  }
+  openForm(): void {
+    this.popUp = false;
   }
 }

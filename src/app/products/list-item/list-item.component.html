@@ -9,9 +9,10 @@
               <div *ngIf="producto.colores">
                       <h6>Colores Disponibles:</h6> 
                       <div *ngFor="let color of producto.colores" >
-                            <figure [ngStyle]="{'background-color': color.color, 'width.px': 15, 'height.px':15, 'margin-left.px': 5}"></figure>
+                            <figure [ngStyle]="{'background-color': color.color, 'width.px': 15, 'height.px':15, 'margin-left.px': 5 ,'float': 'left' }"></figure>
                       </div>
               </div>
+              <br>
           </div>
       </div>
     </div>

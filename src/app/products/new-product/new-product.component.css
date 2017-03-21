@@ -8,16 +8,21 @@
   float: right;
   position: relative;
 }
-.lol {
+.pop-up-form {
   z-index: 1001;
-  padding: 20px;
+  padding: 10px 50px;
   position: absolute;
   width: 60vw;
-  height: 60vh;
-  top: 20vh;
+  height: 70vh;
+  top: 10vh;
   left: 20vw;
   right: 20vw;
   bottom: 20vh;
   overflow-y: scroll;
   background: whitesmoke;
+}
+.pop-up-form .btn-close{
+  top: 50px;
+  right: 50px;
+  position: absolute;
 }
