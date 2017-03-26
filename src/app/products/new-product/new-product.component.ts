@@ -30,7 +30,9 @@ export class NewProductComponent implements OnInit {
           descuento: [''],
           descripcion: [''],
           imagen: ['', Validators.required], 
-          imagenes : this._formBuilder.array([],Validators.required),
+          imagenes : this._formBuilder.array([
+            { sku: [''],  }
+          ],Validators.required),
           marca: ['', Validators.required],
           specs: this._formBuilder.array([], Validators.required)
         });
