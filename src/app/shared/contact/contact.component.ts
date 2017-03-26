@@ -15,8 +15,8 @@ export class Contacto {
 })
 export class ContactComponent implements OnInit {
   model =  new Contacto('Victor','Mexico','I love this website');
-  private paises: any;
-  private submitted: boolean;
+  paises: any;
+  submitted: boolean;
   onSubmit() { this.submitted = true; }
   constructor(private _formsService: FormsService) {
     this.submitted  = false;
@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
   public newHero(){
     this.model = new Contacto('','','');
   }
-  private getCountries( ){ 
+   getCountries( ){ 
     this._formsService.getCountries()
         .subscribe(paises => this.paises = paises);
   }

@@ -43,9 +43,9 @@ import {Component , OnInit } from '@angular/core';
   styles: [` h1 { text-align: center; }`]
 })
 export class AboutComponent implements  OnInit {
-  private angular_logo: string;
-  private description :  string;
-  app : Object = {
+  angular_logo: string;
+  description :  string;
+  app  = {
     descripcion : "Made with <3",
     version: "2.4.4",
     autor: "@victorhugo_jmz",

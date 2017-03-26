@@ -8,6 +8,7 @@ export class Producto {
     departamento?: string;
     descuento?: number;
     descripcion?: string;
+    detalles?: string;
     imagen?: string;
     imagenes?: Imagen[];
     marca?: string;

@@ -11,8 +11,8 @@ export class NewProductComponent implements OnInit {
   @Input() producto:Producto;
   public title: string;
   popUp: boolean;
-  private productoForm: FormGroup;
-  private departamentos: Array<string>;
+   productoForm: FormGroup;
+   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
   }
@@ -37,7 +37,7 @@ export class NewProductComponent implements OnInit {
           specs: this._formBuilder.array([], Validators.required)
         });
   }
-  private prepareProductToPost( ):  Producto{
+  prepareProductToPost( ):  Producto{
      const formModel = this.productoForm.value;
      const imagenesDeepCopy : Imagen[] = formModel.imagenes.map(
        (imagen:  Imagen) => Object.assign({},imagen)
@@ -60,28 +60,28 @@ export class NewProductComponent implements OnInit {
      };
      return productoModel;
   }
-  private setImagenes(imagenes: Imagen[]): void {
+ setImagenes(imagenes: Imagen[]): void {
      const  imagenesFormArray =  this._formBuilder.array(
                  imagenes.map(imagen => this._formBuilder.group(imagen))
      );
      this.productoForm.setControl('imagenes', imagenesFormArray);
   }
-  private setItemSpecs(specs: Spec[]):void {
+  setItemSpecs(specs: Spec[]):void {
       const specsFormArray = this._formBuilder.array(
                  specs.map((spec: Spec)=> this._formBuilder.group(spec))
       );  
       this.productoForm.setControl('specs', specsFormArray);
   }
-  private addNewImagenToArray():void {
+   addNewImagenToArray():void {
     this.imagenes.push(this._formBuilder.group(new Imagen()));
   }
-  private addSpecToFormArray(): void {
+   addSpecToFormArray(): void {
     this.specs.push(this._formBuilder.group(new Spec()));
   }
-  private removeImagenSelectedFromArray(imagen: FormControl): void{
+   removeImagenSelectedFromArray(imagen: FormControl): void{
       this.imagenes.removeAt(this.imagenes.controls.indexOf(imagen));
   }
-  private rmSpecSelectedFromArray(spec: FormControl): void {
+   rmSpecSelectedFromArray(spec: FormControl): void {
       this.specs.removeAt(this.specs.controls.indexOf(spec));
   }  
   get imagenes(): FormArray {
@@ -90,10 +90,10 @@ export class NewProductComponent implements OnInit {
   get specs( ): FormArray {
       return this.productoForm.get('specs') as FormArray;
   }
-  private onSubmit(): void {
+   onSubmit(): void {
     this.prepareProductToPost();  
   }
-  private InitializeValuesIfProductExists(): void {
+   InitializeValuesIfProductExists(): void {
     this.productoForm.patchValue({
           nombre: this.producto.nombre,
           sku: this.producto.sku,

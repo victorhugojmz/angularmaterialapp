@@ -13,9 +13,9 @@ export class DetailsComponent implements OnInit , OnDestroy {
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display') display = 'block';
   @HostBinding('style.position') position = 'absolute';
-  private producto: Producto;
-  private subscription;
-  private update: boolean;
+  producto: Producto;
+  subscription;
+  update: boolean;
   constructor( private route: ActivatedRoute, private _ProductsService: ProductsService, private router: Router) {
      this.update = false;
   }
@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit , OnDestroy {
   public ngOnDestroy( ){  
     this.subscription.unsubscribe();
   }
-  private getProductFromRouteParams() {
+  getProductFromRouteParams() {
     this.subscription =  this.route.params
                              .switchMap((params: Params) => this._ProductsService.getProductPerRoute(params['nombre'],+params['id']))
                              .subscribe((producto: Producto) => this.producto = producto); 
