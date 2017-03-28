@@ -47,7 +47,7 @@ export class AboutComponent implements  OnInit {
   description :  string;
   app  = {
     descripcion : "Made with <3",
-    version: "2.4.4",
+    version: "4.0",
     autor: "@victorhugo_jmz",
     url: "httt://firebase.com",
     deployment: "Firebase Hosting",

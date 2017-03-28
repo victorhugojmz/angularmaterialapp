@@ -11,8 +11,8 @@ export class NewProductComponent implements OnInit {
   @Input() producto:Producto;
   public title: string;
   popUp: boolean;
-   productoForm: FormGroup;
-   departamentos: Array<string>;
+  productoForm: FormGroup;
+  departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
     this.departamentos = departamentosList;
   }
@@ -30,9 +30,7 @@ export class NewProductComponent implements OnInit {
           descuento: [''],
           descripcion: [''],
           imagen: ['', Validators.required], 
-          imagenes : this._formBuilder.array([
-            { sku: [''],  }
-          ],Validators.required),
+          imagenes : this._formBuilder.array([],Validators.required),
           marca: ['', Validators.required],
           specs: this._formBuilder.array([], Validators.required)
         });
