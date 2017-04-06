@@ -12,7 +12,8 @@
         <label class="center-block">Nombre:</label>
         <input placeholder="Nombre del producto" 
               class="form-control" type="text" 
-              formControlName="nombre">
+              formControlName="nombre"
+              required>
       </div>
       <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
@@ -20,7 +21,8 @@
                 <label class="center-block">SKU:</label>
                 <input placeholder="Clave (SKU) del producto" 
                       class="form-control" type="text" 
-                      formControlName="sku">
+                      formControlName="sku"
+                      required>
               </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
@@ -28,7 +30,8 @@
                <label class="center-block">Stock:</label>
                <input placeholder="Cantidad de producto" 
                       class="form-control" type="text" 
-                      formControlName="stock">
+                      formControlName="stock"
+                      required>
               </div>
           </div>
       </div>
@@ -36,10 +39,11 @@
           <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
             <div class="form-group">
               <label class="center-block">Departamento:</label>
-              <select class="form-control" formControlName="departamento">
+              <select class="form-control" formControlName="departamento" required>
                 <option>Selecciona un departamento</option>
                 <option *ngFor="let departamento of departamentos" 
-                        [value]="departamento">
+                        [value]="departamento"
+                        >
                         {{ departamento }}
                 </option>
               </select>
@@ -51,7 +55,8 @@
                 <input placeholder="Marca Comercial del producto" 
                       class="form-control"
                       type="text" 
-                      formControlName="marca">
+                      formControlName="marca"
+                      required>
               </div>
           </div>
        </div> 
@@ -63,7 +68,8 @@
                   <span class="input-group-addon">$</span>
                   <input placeholder="Precio del producto" 
                           class="form-control" type="text" 
-                          formControlName="precio">
+                          formControlName="precio"
+                          required>
                   <span class="input-group-addon">.00</span>
                 </div>
               </div>
@@ -85,7 +91,8 @@
         <input placeholder="Url de la imagen" 
               class="form-control" 
               type="text" 
-              formControlName="imagen">
+              formControlName="imagen"
+              required>
       </div>
      
       <h4>Imagenes</h4>
@@ -96,7 +103,7 @@
             [formGroupName]="i">
           <div style="margin-left:1em;">
             <div class="form-group">
-              <label class="center-block">Url de la imagen {{ i+ 1 }}:
+              <label class="center-block">Información de la imagen No. {{ i+ 1 }}:
                 <input placeholder="Url de la imagen" 
                       class="form-control" 
                       formControlName="url">
