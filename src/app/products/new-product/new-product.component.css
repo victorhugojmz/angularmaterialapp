@@ -21,7 +21,8 @@
   overflow-y: scroll;
   background: whitesmoke;
 }
-.pop-up-form .btn-close{
+.btn-close{
+  margin-top: 50px;
   top: 50px;
   right: 50px;
   position: absolute;

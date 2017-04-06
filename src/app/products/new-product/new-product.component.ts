@@ -42,7 +42,7 @@ export class NewProductComponent implements OnInit {
      );
      const specsDeepCopy:  Spec[] = formModel.specs.map(
        (spec: Spec)=> Object.assign({},spec)
-      );
+      ); 
      const productoModel: Producto = {
           sku: formModel.sku as string,
           stock: formModel.stock as number, 
@@ -79,7 +79,7 @@ export class NewProductComponent implements OnInit {
    removeImagenSelectedFromArray(imagen: FormControl): void{
       this.imagenes.removeAt(this.imagenes.controls.indexOf(imagen));
   }
-   rmSpecSelectedFromArray(spec: FormControl): void {
+  rmSpecSelectedFromArray(spec: FormControl): void {
       this.specs.removeAt(this.specs.controls.indexOf(spec));
   }  
   get imagenes(): FormArray {
