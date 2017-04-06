@@ -1,9 +1,9 @@
 .full-loader {
-   margin: 40vh  auto 30vh auto; 
-   width: 100vw;
-   height: 100vh;
+   margin: 20vh  auto 20vh auto; 
+   width: 10vw;
+   height: 10vh;
    z-index: 2;
-   position: absolute;
+   position: relative;
    display: flex;
    justify-content: center;
    align-content: center;

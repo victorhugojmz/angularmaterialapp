@@ -2,8 +2,8 @@
     margin: 10px auto 10px auto;
     padding: 10px;
     background: whitesmoke;
-    width: 75%;
-    height: 110px;
+    width: 80%;
+    height: 130px;
     overflow-x: scroll;
 }
 .img-responsive {
@@ -11,10 +11,10 @@
 }
 .img-thumbnail {
     margin-right: 1px;
-    float: left; 
 }
 .img-thumbnail img {
     width: 50px;
+    display: flex;
     height: 50px;
 }
 .img-thumbnail img:hover{

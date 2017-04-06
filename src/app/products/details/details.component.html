@@ -13,7 +13,7 @@
                             <h5>Descuento de {{ producto.descuento | percent: '2.2-3' }}</h5>
                         </div>
                         <p><strong>Descripcion</strong> {{ producto.descripcion }}</p>
-                        <h4>Tallas: {{ producto.size }}</h4>    
+                        <h4>Tallas: {{ producto.size }}</h4>     
                         <button type="button" (click)="updateProduct()" class="btn btn-info">Actualizar producto</button>
                         <button type="button" class="btn btn-danger">Eliminar producto</button>
                 </div>
