@@ -9,10 +9,10 @@
   position: relative;
 }
 .pop-up-form {
-  z-index: 1001;
+  z-index: 3;
   padding: 10px 50px;
   position: absolute;
-  width: 60vw;
+  width: 70vw;
   height: 70vh;
   top: 10vh;
   left: 20vw;

@@ -1,7 +1,7 @@
 <app-parallax *ngIf="departamento" [departamento-details]="departamento"></app-parallax>
-<app-loader *ngIf="!departamento"></app-loader>
+<app-loader *ngIf="!ListOfProducts"></app-loader>
 <div *ngIf="ListOfProducts" class="container">
   <h2>Busca algún producto de tu interés del departamento {{ departamento.nombre }}</h2>
   <searchbox (update) = "term = $event"></searchbox>
   <app-list-item *ngFor="let producto of ListOfProducts | filter:term" [product-data]="producto"></app-list-item>
-</div>
+</div> 
