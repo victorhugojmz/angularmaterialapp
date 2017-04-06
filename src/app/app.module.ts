@@ -14,7 +14,6 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 @NgModule({
 declarations: [
     AppComponent,
-    HomeComponent,
     NotFoundComponent,
     NavigationComponent
   ],
