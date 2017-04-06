@@ -3,15 +3,12 @@
     padding: 10px;
     width: 90%;
     height: 130px;
-    overflow-x: scroll;
 }
 .img-responsive {
     margin: 0 auto;
 }
-.img-thumbnail {
-    margin-right: 1px;
-}
 .img-thumbnail img {
+    margin-right: 1px;    
     width: 50px;
     display: flex;
     height: 50px;
