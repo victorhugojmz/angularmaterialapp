@@ -1,8 +1,7 @@
 .img-container {
     margin: 10px auto 10px auto;
     padding: 10px;
-    background: whitesmoke;
-    width: 80%;
+    width: 90%;
     height: 130px;
     overflow-x: scroll;
 }
