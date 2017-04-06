@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="pais">País de origen</label>
+        <label for="pais">¿De dónde nos visitas?</label>
         <select class="form-control" id="pais"
                 required
                 [(ngModel)]="model.pais" name="pais"
@@ -32,8 +32,8 @@
                [(ngModel)]="model.mensaje" name="mensaje">
         </textarea>
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Enviar Mensaje</button>
+      <button type="button" class="btn btn-info" (click)="nuevoMensaje(); heroForm.reset()">Nuevo Mensaje</button>
     </form>
   </div>
   <div [hidden]="!submitted">

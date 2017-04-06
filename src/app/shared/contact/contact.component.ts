@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto, FormsService } from '../../products';
-export class Contacto {
-  constructor(
-    public nombre: string,
-    public pais: string,
-    public mensaje: string
-  ) {  }
-}
+import { Producto, FormsService, Contacto  } from '../../products';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -24,7 +17,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.getCountries();
   }
-  public newHero(){
+  public nuevoMensaje( ){
     this.model = new Contacto('','','');
   }
    getCountries( ){ 

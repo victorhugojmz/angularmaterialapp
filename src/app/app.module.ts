@@ -9,7 +9,6 @@ import { RoutesModule } from './routes';
 //Componentes
 import { AppComponent } from './app.component';
 // Shared
-import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 @NgModule({
