@@ -9,6 +9,7 @@ export class Producto {
     descuento?: number;
     descripcion?: string;
     detalles?: string;
+    tallas?: Tallas[];
     imagen?: string;
     imagenes?: Imagen[];
     marca?: string;
@@ -27,4 +28,8 @@ export class Spec{
 export class Color {
     color: string = '';
     imagen: string = '';
+}
+export class Tallas {
+    talla: string = '';
+    stock:  string = '';
 }

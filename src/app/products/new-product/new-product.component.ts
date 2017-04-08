@@ -32,6 +32,7 @@ export class NewProductComponent implements OnInit {
           imagen: ['', Validators.required], 
           imagenes : this._formBuilder.array([],Validators.required),
           marca: ['', Validators.required],
+          
           specs: this._formBuilder.array([], Validators.required)
         });
   }
