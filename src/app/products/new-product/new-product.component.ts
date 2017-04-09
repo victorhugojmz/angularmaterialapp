@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Producto, Imagen, Spec, ProductsService, departamentosList} from '../../products';
+import { Producto, Imagen, Spec, ProductsService } from '../../products';
 import { FormGroup, FormBuilder,FormArray, Validators, FormControl } from '@angular/forms';
 import { forbiddenNameValidator } from './validator';
 @Component({
@@ -14,7 +14,7 @@ export class NewProductComponent implements OnInit {
   productoForm: FormGroup;
   departamentos: Array<string>;
   constructor(private _formBuilder: FormBuilder, private _productService: ProductsService) {
-    this.departamentos = departamentosList;
+    this.departamentos = ["Men","Women","Kids","Baby"];
   }
   public createForm ( ): void  { 
         this.productoForm = this._formBuilder.group({

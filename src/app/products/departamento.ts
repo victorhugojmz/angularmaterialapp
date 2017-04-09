@@ -9,4 +9,4 @@ export class Departamento {
 export interface DepartamentData { 
   productos : Producto[];
   departamento:  Departamento;
-} 
+}
