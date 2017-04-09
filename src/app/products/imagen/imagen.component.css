@@ -1,7 +1,7 @@
 .img-container {
-    margin: 10px auto 10px auto;
+    margin: 20px auto 20px auto;
     padding: 10px;
-    width: 90%;
+    width: 95%;
     height: 130px;
 }
 .img-responsive {
@@ -12,6 +12,7 @@
     width: 50px;
     display: flex;
     height: 50px;
+    cursor: pointer;
 }
 .img-thumbnail img:hover{
     opacity: 0.7;

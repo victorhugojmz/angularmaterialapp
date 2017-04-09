@@ -14,6 +14,7 @@
                         <div>
                             <h4>Tallas:</h4>
                             <select class="form-control">
+                                <option>Elige una talla:</option>
                                 <option  *ngFor="let talla of producto.tallas">{{ talla.talla }} - ({{ talla.stock }})</option>
                             </select>
                         </div>

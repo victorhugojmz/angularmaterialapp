@@ -2,7 +2,6 @@ export class Producto {
     id?: number;
     sku?: string;
     stock?: number;
-    size?: string;
     nombre?: string;
     precio?: number;
     departamento?: string;
