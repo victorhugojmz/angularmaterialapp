@@ -23,6 +23,6 @@ export class ProductsService {
     let  departamento  = this.getDepartaments()
                              .map((departamento: Departamento[]) => departamento.find((departamento: Departamento) => departamento.nombre === nombreDepartamento));
     let productos =  this.getProducts(nombreDepartamento);
-    return Observable.forkJoin(departamento,productos); 
+    return Observable.combineLatest(departamento,productos); 
   }
 }

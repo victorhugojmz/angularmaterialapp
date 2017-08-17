@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit , OnDestroy {
      this.update = false;
   }
   public updateProduct(){
-      this.update = !this.update;  
+      this.update = !this.update;   
   }
   public ngOnInit() {
     this.getProductFromRouteParams();
